@@ -26,7 +26,7 @@ const allCategories = ['Todos', ...new Set(items.map(i => i.category))];
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="text-center mb-10">
-      <span class="text-brand-gold text-xs font-bold uppercase tracking-widest">Nuestro trabajo</span>
+      <span class="text-brand-red text-xs font-bold uppercase tracking-widest">Nuestro trabajo</span>
       <h2 id="gallery-heading" class="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-2 mb-4">
         {title}
       </h2>
@@ -42,8 +42,8 @@ const allCategories = ['Todos', ...new Set(items.map(i => i.category))];
             class:list={[
               'gallery-filter px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200',
               cat === 'Todos'
-                ? 'bg-brand-gold text-brand-black active-filter'
-                : 'bg-brand-card border border-brand-border text-gray-300 hover:border-brand-gold/50',
+                ? 'bg-brand-red text-white active-filter'
+                : 'bg-brand-card border border-brand-border text-gray-300 hover:border-brand-red/50',
             ]}
             role="tab"
             aria-selected={cat === 'Todos' ? 'true' : 'false'}
@@ -72,7 +72,7 @@ const allCategories = ['Todos', ...new Set(items.map(i => i.category))];
               <span class="text-white text-xs font-medium">{alt}</span>
             </div>
             <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-              <span class="bg-brand-gold text-brand-black text-xs font-bold px-2 py-0.5 rounded-full">{category}</span>
+              <span class="bg-brand-red text-white text-xs font-bold px-2 py-0.5 rounded-full">{category}</span>
             </div>
           </div>
         ))}
@@ -95,7 +95,7 @@ const allCategories = ['Todos', ...new Set(items.map(i => i.category))];
         href="https://wa.me/573054001112?text=Hola,%20quiero%20ver%20más%20trabajos%20de%20CH%20Polarizados"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 border border-brand-border hover:border-brand-gold/50 text-gray-300 hover:text-white text-sm font-medium px-6 py-3 rounded-xl transition-all"
+        class="inline-flex items-center gap-2 border border-brand-border hover:border-brand-red/50 text-gray-300 hover:text-white text-sm font-medium px-6 py-3 rounded-xl transition-all"
       >
         Ver más trabajos en WhatsApp
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -117,11 +117,11 @@ const allCategories = ['Todos', ...new Set(items.map(i => i.category))];
 
       // Actualizar botones activos
       filterBtns.forEach(b => {
-        b.classList.remove('bg-brand-gold', 'text-brand-black', 'active-filter');
+        b.classList.remove('bg-brand-red', 'text-brand-black', 'active-filter');
         b.classList.add('bg-brand-card', 'border', 'border-brand-border', 'text-gray-300');
         b.setAttribute('aria-selected', 'false');
       });
-      btn.classList.add('bg-brand-gold', 'text-brand-black', 'active-filter');
+      btn.classList.add('bg-brand-red', 'text-brand-black', 'active-filter');
       btn.classList.remove('bg-brand-card', 'border-brand-border', 'text-gray-300');
       btn.setAttribute('aria-selected', 'true');
 

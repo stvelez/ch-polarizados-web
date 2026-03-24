@@ -22,12 +22,12 @@
 
   /* Mejora la selección de texto */
   ::selection {
-    @apply bg-brand-gold/30 text-white;
+    @apply bg-brand-red/30 text-white;
   }
 
   /* Focus visible accesible */
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-brand-gold;
+    @apply outline-2 outline-offset-2 outline-brand-red;
   }
 
   /* Imágenes responsive por defecto */
@@ -51,7 +51,7 @@
 
   /* Etiqueta de categoría sobre título de sección */
   .section-label {
-    @apply text-brand-gold text-xs font-bold uppercase tracking-widest;
+    @apply text-brand-red text-xs font-bold uppercase tracking-widest;
   }
 
   /* Título principal de sección */
@@ -66,7 +66,7 @@
 
   /* Botón primario dorado */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 bg-brand-gold hover:bg-amber-400 text-brand-black font-bold text-sm px-6 py-3.5 rounded-xl transition-all duration-200 hover:scale-105 active:scale-100 shadow-lg shadow-brand-gold/20;
+    @apply inline-flex items-center justify-center gap-2 bg-brand-red hover:bg-brand-red-hover text-white font-bold text-sm px-6 py-3.5 rounded-xl transition-all duration-200 hover:scale-105 active:scale-100 shadow-lg shadow-brand-red/20;
   }
 
   /* Botón secundario borde */
@@ -84,7 +84,7 @@
 @layer utilities {
   /* Efecto de texto degradado dorado */
   .text-gradient-gold {
-    @apply bg-gradient-to-r from-brand-gold to-amber-300 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-brand-red to-rose-400 bg-clip-text text-transparent;
   }
 
   /* Scrollbar personalizado */

@@ -19,12 +19,12 @@ const currentPath = Astro.url.pathname;
 
       <!-- Logo -->
       <a href="/" class="flex items-center gap-2 group" aria-label="CH Polarizados - Inicio">
-        <div class="w-9 h-9 bg-brand-gold rounded-lg flex items-center justify-center font-display font-black text-brand-black text-sm group-hover:scale-105 transition-transform">
+        <div class="w-9 h-9 bg-brand-red rounded-lg flex items-center justify-center font-display font-black text-brand-black text-sm group-hover:scale-105 transition-transform">
           CH
         </div>
         <div class="flex flex-col leading-none">
           <span class="font-display font-bold text-white text-base tracking-tight">CH Polarizados</span>
-          <span class="text-xs text-brand-gold font-medium tracking-widest uppercase">Medellín</span>
+          <span class="text-xs text-brand-red font-medium tracking-widest uppercase">Medellín</span>
         </div>
       </a>
 
@@ -41,7 +41,7 @@ const currentPath = Astro.url.pathname;
               class:list={[
                 'px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200',
                 isActive
-                  ? 'text-brand-gold bg-brand-gold/10'
+                  ? 'text-brand-red bg-brand-red/10'
                   : 'text-gray-300 hover:text-white hover:bg-white/5',
               ]}
               aria-current={isActive ? 'page' : undefined}
@@ -59,7 +59,7 @@ const currentPath = Astro.url.pathname;
           class="text-sm text-gray-300 hover:text-white transition-colors flex items-center gap-1.5"
           aria-label="Llamar a CH Polarizados"
         >
-          <svg class="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-4 h-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
           </svg>
@@ -69,7 +69,7 @@ const currentPath = Astro.url.pathname;
           href={`https://wa.me/${whatsapp}?text=Hola,%20quiero%20cotizar%20un%20servicio`}
           target="_blank"
           rel="noopener noreferrer"
-          class="bg-brand-gold text-brand-black text-sm font-semibold px-4 py-2 rounded-lg hover:bg-amber-400 transition-colors"
+          class="bg-brand-red text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-brand-red-hover transition-colors"
         >
           Cotizar ahora
         </a>
@@ -111,7 +111,7 @@ const currentPath = Astro.url.pathname;
             class:list={[
               'block px-4 py-3 rounded-lg text-sm font-medium transition-all',
               isActive
-                ? 'text-brand-gold bg-brand-gold/10'
+                ? 'text-brand-red bg-brand-red/10'
                 : 'text-gray-300 hover:text-white hover:bg-white/5',
             ]}
             aria-current={isActive ? 'page' : undefined}
@@ -125,7 +125,7 @@ const currentPath = Astro.url.pathname;
           href={`tel:${phone}`}
           class="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-lg border border-brand-border text-sm text-gray-300"
         >
-          <svg class="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-4 h-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
           </svg>
@@ -135,7 +135,7 @@ const currentPath = Astro.url.pathname;
           href={`https://wa.me/${whatsapp}?text=Hola,%20quiero%20cotizar%20un%20servicio`}
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center justify-center w-full bg-brand-gold text-brand-black text-sm font-bold px-4 py-3 rounded-lg"
+          class="flex items-center justify-center w-full bg-brand-red text-white text-sm font-bold px-4 py-3 rounded-lg"
         >
           Cotizar por WhatsApp
         </a>

@@ -37,7 +37,7 @@ const steps = [
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="text-center mb-14">
-      <span class="text-brand-gold text-xs font-bold uppercase tracking-widest">Proceso</span>
+      <span class="text-brand-red text-xs font-bold uppercase tracking-widest">Proceso</span>
       <h2 id="howwework-heading" class="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-2 mb-4">
         ¿Cómo trabajamos?
       </h2>
@@ -55,9 +55,9 @@ const steps = [
         {steps.map(({ number, title, description, icon }, i) => (
           <div class="relative flex flex-col items-center text-center group">
             <!-- Número / círculo -->
-            <div class="relative w-16 h-16 rounded-2xl bg-brand-card border border-brand-border group-hover:border-brand-gold/50 flex items-center justify-center mb-5 transition-all duration-300 group-hover:bg-brand-gold/5 z-10">
+            <div class="relative w-16 h-16 rounded-2xl bg-brand-card border border-brand-border group-hover:border-brand-red/50 flex items-center justify-center mb-5 transition-all duration-300 group-hover:bg-brand-red/5 z-10">
               <span class="text-2xl" role="img" aria-hidden="true">{icon}</span>
-              <span class="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-brand-gold text-brand-black text-xs font-black flex items-center justify-center">
+              <span class="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-brand-red text-white text-xs font-black flex items-center justify-center">
                 {i + 1}
               </span>
             </div>
@@ -75,7 +75,7 @@ const steps = [
         href="https://wa.me/573054001112?text=Hola,%20quiero%20agendar%20un%20servicio"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 bg-brand-gold hover:bg-amber-400 text-brand-black font-bold text-sm px-8 py-3.5 rounded-xl transition-all hover:scale-105 shadow-lg shadow-brand-gold/20"
+        class="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-hover text-white font-bold text-sm px-8 py-3.5 rounded-xl transition-all hover:scale-105 shadow-lg shadow-brand-red/20"
       >
         Comenzar ahora
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
