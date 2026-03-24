@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ─────────────────────────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-brand-black text-brand-light;
+    min-height: 100dvh;
+  }
+
+  /* Mejora la selección de texto */
+  ::selection {
+    @apply bg-brand-gold/30 text-white;
+  }
+
+  /* Focus visible accesible */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-gold;
+  }
+
+  /* Imágenes responsive por defecto */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Links heredan el color del padre */
+  a {
+    color: inherit;
+  }
+}
+
+/* ── Componentes reutilizables ─────────────────────────────────────────── */
+@layer components {
+  /* Sección de contenido centrado */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Etiqueta de categoría sobre título de sección */
+  .section-label {
+    @apply text-brand-gold text-xs font-bold uppercase tracking-widest;
+  }
+
+  /* Título principal de sección */
+  .section-title {
+    @apply font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-2 mb-4;
+  }
+
+  /* Párrafo de descripción de sección */
+  .section-desc {
+    @apply text-gray-400 text-base max-w-xl mx-auto;
+  }
+
+  /* Botón primario dorado */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-brand-gold hover:bg-amber-400 text-brand-black font-bold text-sm px-6 py-3.5 rounded-xl transition-all duration-200 hover:scale-105 active:scale-100 shadow-lg shadow-brand-gold/20;
+  }
+
+  /* Botón secundario borde */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 border border-brand-border hover:border-gray-500 text-gray-300 hover:text-white font-medium text-sm px-6 py-3.5 rounded-xl transition-all duration-200;
+  }
+
+  /* Card base */
+  .card {
+    @apply bg-brand-card border border-brand-border rounded-2xl;
+  }
+}
+
+/* ── Utilities extras ──────────────────────────────────────────────────── */
+@layer utilities {
+  /* Efecto de texto degradado dorado */
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-brand-gold to-amber-300 bg-clip-text text-transparent;
+  }
+
+  /* Scrollbar personalizado */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.brand.border') transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-brand-border rounded-full;
+  }
+}

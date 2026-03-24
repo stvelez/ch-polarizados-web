@@ -1,0 +1,270 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Hero from '@/components/Hero.astro';
+import FAQ from '@/components/FAQ.astro';
+import Gallery from '@/components/Gallery.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import MapSection from '@/components/MapSection.astro';
+import { sonidoFaqs } from '@/data/faqs';
+import { galleryItems } from '@/data/gallery';
+import { testimonials } from '@/data/testimonials';
+
+const sonidoGallery = galleryItems.filter(i =>
+  i.category === 'Sonido' || i.category === 'Eléctrico'
+);
+const sonidoTestimonials = testimonials.filter(t => t.service === 'Sonido');
+
+// Schema para el servicio de sonido
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Instalación de Sonido para Vehículos en Medellín",
+  "provider": {
+    "@type": "AutoRepair",
+    "name": "CH Polarizados",
+    "url": "https://chpolarizados.com",
+    "telephone": "+573103557126",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Cra. 64c #75a-15, Barrio Caribe",
+      "addressLocality": "Medellín",
+      "addressCountry": "CO"
+    }
+  },
+  "areaServed": { "@type": "City", "name": "Medellín" },
+  "description": "Instalación profesional de sistemas de audio, autoradios, parlantes, amplificadores y subwoofers para todo tipo de vehículos en Medellín.",
+};
+
+const audioPackages = [
+  {
+    id: 'basico',
+    icon: '🎵',
+    name: 'Básico',
+    description: 'Perfecto para quien quiere buena música sin complicaciones.',
+    includes: [
+      'Autoradio con Bluetooth y USB',
+      '1 par de parlantes delanteros',
+      'Instalación profesional',
+      'Garantía de instalación',
+    ],
+  },
+  {
+    id: 'intermedio',
+    icon: '🔊',
+    name: 'Intermedio',
+    badge: 'Popular',
+    description: 'El favorito de nuestros clientes. Sonido completo y potente.',
+    includes: [
+      'Autoradio táctil con Android Auto / CarPlay',
+      '2 pares de parlantes (delanteros y traseros)',
+      'Amplificador de 4 canales',
+      'Instalación profesional y cableado',
+      'Garantía de instalación',
+    ],
+  },
+  {
+    id: 'premium',
+    icon: '🏆',
+    name: 'Premium',
+    description: 'Para los verdaderos amantes del buen sonido.',
+    includes: [
+      'Autoradio táctil de alta gama',
+      'Parlantes de componentes o coaxiales premium',
+      'Amplificador multicanal',
+      'Subwoofer con cajón acústico',
+      'Cableado premium calibrado',
+      'Afinación y ecualización profesional',
+      'Garantía completa en equipos e instalación',
+    ],
+  },
+];
+---
+
+<Layout
+  title="Sonido para Carros en Medellín | CH Polarizados"
+  description="Instalación de sistemas de audio para vehículos en Medellín. Autoradios, parlantes, amplificadores y subwoofers. Servicio profesional con garantía. ¡Cotiza gratis!"
+  canonical="/sonido"
+  schema={serviceSchema}
+>
+  <!-- Hero -->
+  <Hero
+    badge="Audio automotriz"
+    title="Sonido para"
+    subtitle="Carros en Medellín"
+    description="Transformamos la experiencia de conducción con sistemas de audio de alta calidad. Desde un autoradio básico hasta un sistema premium, lo instalamos de forma profesional y limpia."
+    ctaLabel="Cotizar sistema de sonido"
+    ctaHref="https://wa.me/573054001112?text=Hola,%20quiero%20cotizar%20un%20sistema%20de%20sonido"
+    stats={[
+      { value: '10+', label: 'Años instalando audio' },
+      { value: '100%', label: 'Cableado limpio' },
+      { value: '1 año', label: 'Garantía instalación' },
+    ]}
+  />
+
+  <!-- Paquetes de sonido -->
+  <section class="py-20 lg:py-28 bg-brand-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="text-brand-gold text-xs font-bold uppercase tracking-widest">Paquetes</span>
+        <h2 class="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-2 mb-4">
+          Sistemas de Audio
+        </h2>
+        <p class="text-gray-400 text-base max-w-xl mx-auto">
+          Tenemos opciones para todos los presupuestos. Todos con instalación profesional y garantía incluida.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {audioPackages.map(({ id, icon, name, badge, description, includes }) => (
+          <div
+            id={id}
+            class:list={[
+              'relative bg-brand-card border rounded-2xl p-7 flex flex-col scroll-mt-24',
+              badge ? 'border-brand-gold/50 shadow-lg shadow-brand-gold/10' : 'border-brand-border',
+            ]}
+          >
+            {badge && (
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span class="bg-brand-gold text-brand-black text-xs font-black px-4 py-1 rounded-full">
+                  {badge}
+                </span>
+              </div>
+            )}
+            <div class="text-3xl mb-4" role="img" aria-hidden="true">{icon}</div>
+            <h3 class="font-display font-black text-xl text-white mb-2">Paquete {name}</h3>
+            <p class="text-gray-400 text-sm mb-5">{description}</p>
+            <ul class="space-y-2.5 flex-1 mb-6">
+              {includes.map(item => (
+                <li class="flex items-start gap-2 text-sm text-gray-300">
+                  <svg class="w-4 h-4 text-brand-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a
+              href={`https://wa.me/573054001112?text=Hola,%20quiero%20cotizar%20el%20paquete%20de%20sonido%20${encodeURIComponent(name)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class:list={[
+                'flex items-center justify-center gap-2 font-bold text-sm px-5 py-3 rounded-xl transition-all hover:scale-105',
+                badge
+                  ? 'bg-brand-gold hover:bg-amber-400 text-brand-black'
+                  : 'border border-brand-border hover:border-brand-gold/50 text-white hover:text-brand-gold',
+              ]}
+            >
+              Cotizar paquete {name}
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-center text-gray-500 text-sm mt-8">
+        * Los precios varían según el vehículo y los equipos elegidos.{' '}
+        <a
+          href="https://wa.me/573054001112?text=Hola,%20quiero%20una%20cotizaci%C3%B3n%20personalizada"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-brand-gold hover:underline"
+        >
+          Solicita una cotización personalizada →
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Eléctrico Automotriz -->
+  <section id="electrico" class="py-20 lg:py-28 bg-brand-black scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="text-brand-gold text-xs font-bold uppercase tracking-widest">Adicional</span>
+        <h2 class="font-display font-black text-3xl sm:text-4xl text-white mt-2 mb-4">
+          Eléctrico Automotriz
+        </h2>
+        <p class="text-gray-400 text-base max-w-xl mx-auto">
+          Complementa tu vehículo con accesorios eléctricos instalados de forma profesional.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {[
+          {
+            icon: '🪟',
+            title: 'Vidrios Eléctricos',
+            description: 'Kit completo de vidrios eléctricos para vehículos que vienen de fábrica con manivela.',
+          },
+          {
+            icon: '🅿️',
+            title: 'Sensores de Parqueo',
+            description: 'Sensores delanteros y traseros con alerta sonora para estacionar con seguridad.',
+          },
+          {
+            icon: '📷',
+            title: 'Cámara de Reversa',
+            description: 'Instalación de cámara trasera integrada a tu autoradio o pantalla del vehículo.',
+          },
+          {
+            icon: '🔒',
+            title: 'Alarmas y Seguros',
+            description: 'Seguros centrales y alarmas para mayor seguridad e integración con tu llave.',
+          },
+        ].map(({ icon, title, description }) => (
+          <div class="bg-brand-card border border-brand-border rounded-xl p-6 hover:border-brand-gold/30 transition-colors text-center">
+            <div class="text-3xl mb-4" role="img" aria-hidden="true">{icon}</div>
+            <h3 class="font-semibold text-white text-sm mb-2">{title}</h3>
+            <p class="text-gray-400 text-xs leading-relaxed">{description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-10">
+        <a
+          href="https://wa.me/573054001112?text=Hola,%20quiero%20cotizar%20un%20servicio%20el%C3%A9ctrico"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-brand-gold hover:bg-amber-400 text-brand-black font-bold text-sm px-8 py-3.5 rounded-xl transition-all hover:scale-105 shadow-lg shadow-brand-gold/20"
+        >
+          Cotizar servicio eléctrico
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marcas que manejamos -->
+  <section class="py-14 bg-brand-dark border-y border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-gray-500 text-xs uppercase tracking-widest mb-8">Marcas que instalamos</p>
+      <div class="flex flex-wrap items-center justify-center gap-6 lg:gap-10">
+        {['Pioneer', 'Sony', 'JVC', 'Kenwood', 'Focal', 'JL Audio', 'Rockford Fosgate', 'Alpine'].map(brand => (
+          <span class="text-gray-400 font-semibold text-sm hover:text-white transition-colors">
+            {brand}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Galería de sonido -->
+  {sonidoGallery.length > 0 && (
+    <Gallery
+      title="Trabajos de Audio"
+      subtitle="Instalaciones de sistemas de sonido realizadas en nuestro taller"
+      items={sonidoGallery}
+    />
+  )}
+
+  <!-- Testimonios -->
+  {sonidoTestimonials.length > 0 && (
+    <Testimonials testimonials={sonidoTestimonials} />
+  )}
+
+  <!-- FAQ sonido -->
+  <FAQ
+    title="Preguntas sobre Sonido"
+    items={sonidoFaqs}
+  />
+
+  <!-- Mapa -->
+  <MapSection />
+</Layout>

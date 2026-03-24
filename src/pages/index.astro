@@ -1,0 +1,144 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Hero from '@/components/Hero.astro';
+import Services from '@/components/Services.astro';
+import WhyUs from '@/components/WhyUs.astro';
+import HowWeWork from '@/components/HowWeWork.astro';
+import Gallery from '@/components/Gallery.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import FAQ from '@/components/FAQ.astro';
+import MapSection from '@/components/MapSection.astro';
+import { testimonials } from '@/data/testimonials';
+import { galleryItems } from '@/data/gallery';
+import { generalFaqs } from '@/data/faqs';
+
+const services = [
+  {
+    title: 'Polarizado Nanocerámica',
+    description: 'La tecnología más avanzada en polarizado. Bloquea el 99% de rayos UV, rechaza hasta el 60% del calor y no interfiere con señales de GPS ni celular.',
+    href: '/polarizados#nanoceramica',
+    icon: '🌟',
+    badge: 'Premium',
+    features: [
+      'Bloqueo UV 99%',
+      'Rechazo calor hasta 60%',
+      'Sin interferencia GPS/señal',
+      'Garantía 5 años',
+    ],
+  },
+  {
+    title: 'Polarizado HD',
+    description: 'Excelente relación calidad-precio. Protección UV completa, reducción de calor y acabado oscuro uniforme para todos los tipos de vehículo.',
+    href: '/polarizados#hd',
+    icon: '🪟',
+    features: [
+      'Bloqueo UV 99%',
+      'Rechazo calor hasta 40%',
+      'Alta claridad visual',
+      'Garantía 3 años',
+    ],
+  },
+  {
+    title: 'Película de Seguridad',
+    description: 'Mantiene el vidrio unido en caso de impacto. Protege a los ocupantes de fragmentos y dificulta el acceso en caso de robo.',
+    href: '/polarizados#seguridad',
+    icon: '🛡️',
+    features: [
+      'Protección ante impactos',
+      'Anti hurto y vandalismo',
+      'Compatible con polarizado',
+      'Para hogar y vehículos',
+    ],
+  },
+  {
+    title: 'Sonido para Carros',
+    description: 'Diseñamos e instalamos sistemas de audio de alta calidad. Desde equipos básicos con Bluetooth hasta sistemas premium de alta fidelidad.',
+    href: '/sonido',
+    icon: '🔊',
+    features: [
+      'Autoradios táctiles',
+      'Parlantes y subwoofers',
+      'Amplificadores',
+      'Instalación profesional',
+    ],
+  },
+  {
+    title: 'Eléctrico Automotriz',
+    description: 'Instalación de accesorios eléctricos para tu vehículo. Vidrios eléctricos, sensores de parqueo, cámaras de reversa y más.',
+    href: '/sonido#electrico',
+    icon: '⚡',
+    features: [
+      'Vidrios eléctricos',
+      'Sensores de parqueo',
+      'Cámaras de reversa',
+      'Alarmas y seguros',
+    ],
+  },
+];
+
+// Schema para la página de inicio
+const homeSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "CH Polarizados",
+  "url": "https://chpolarizados.com",
+  "description": "Especialistas en polarizado de vehículos y sistemas de audio en Medellín, Colombia.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://chpolarizados.com/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+};
+---
+
+<Layout
+  title="CH Polarizados Medellín | Polarizado y Sonido para Vehículos"
+  description="Especialistas en polarizado nanocerámica, HD y películas de seguridad para vehículos en Medellín. También instalación de sonido profesional. ¡Cotiza gratis por WhatsApp!"
+  canonical="/"
+  schema={homeSchema}
+>
+  <!-- Hero -->
+  <Hero
+    badge="Medellín · Barrio Caribe"
+    title="Polarizado y Sonido"
+    subtitle="Profesional para tu Vehículo"
+    description="En CH Polarizados transformamos tu vehículo con los mejores materiales del mercado. Polarizado nanocerámica, HD, películas de seguridad y sistemas de audio de alta calidad en Medellín."
+    stats={[
+      { value: '10+', label: 'Años de experiencia' },
+      { value: '5K+', label: 'Vehículos atendidos' },
+      { value: '5★',  label: 'Calificación clientes' },
+    ]}
+  />
+
+  <!-- Servicios -->
+  <Services
+    title="Nuestros Servicios"
+    subtitle="Polarizado, sonido y eléctrico automotriz en un solo lugar"
+    services={services}
+  />
+
+  <!-- ¿Por qué elegirnos? -->
+  <WhyUs />
+
+  <!-- Cómo trabajamos -->
+  <HowWeWork />
+
+  <!-- Galería -->
+  <Gallery
+    title="Galería de Trabajos"
+    subtitle="Resultados reales de nuestros clientes en Medellín"
+    items={galleryItems}
+  />
+
+  <!-- Testimonios -->
+  <Testimonials testimonials={testimonials} />
+
+  <!-- FAQ -->
+  <FAQ
+    title="Preguntas Frecuentes"
+    items={generalFaqs}
+  />
+
+  <!-- Mapa y contacto -->
+  <MapSection />
+</Layout>

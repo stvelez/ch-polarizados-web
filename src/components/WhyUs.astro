@@ -1,0 +1,78 @@
+---
+const reasons = [
+  {
+    icon: '🏆',
+    title: '+10 años de experiencia',
+    description: 'Más de una década especializados en polarizado y audio automotriz en Medellín, con miles de vehículos intervenidos.',
+  },
+  {
+    icon: '🎯',
+    title: 'Materiales certificados',
+    description: 'Solo usamos películas y materiales de marcas reconocidas con certificación de calidad y respaldo de garantía.',
+  },
+  {
+    icon: '🔧',
+    title: 'Técnicos especializados',
+    description: 'Nuestro equipo está capacitado y actualizado en las últimas técnicas de instalación para garantizar un acabado perfecto.',
+  },
+  {
+    icon: '✅',
+    title: 'Garantía por escrito',
+    description: 'Todos nuestros servicios cuentan con garantía escrita. Tu tranquilidad es nuestra prioridad.',
+  },
+  {
+    icon: '💬',
+    title: 'Asesoría personalizada',
+    description: 'Te orientamos para elegir la solución ideal según tu vehículo, necesidades y presupuesto. Sin presión.',
+  },
+  {
+    icon: '📍',
+    title: 'Ubicación central',
+    description: 'Taller propio en el Barrio Caribe, Medellín. Fácil acceso y parqueadero disponible para tu comodidad.',
+  },
+];
+---
+
+<section class="py-20 lg:py-28 bg-brand-dark" aria-labelledby="whyus-heading">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+
+      <!-- Texto izquierdo -->
+      <div class="mb-12 lg:mb-0">
+        <span class="text-brand-gold text-xs font-bold uppercase tracking-widest">¿Por qué elegirnos?</span>
+        <h2 id="whyus-heading" class="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-2 mb-6 leading-tight">
+          La diferencia está en
+          <span class="text-brand-gold"> los detalles</span>
+        </h2>
+        <p class="text-gray-400 text-base leading-relaxed mb-8">
+          En CH Polarizados no solo instalamos una película o un parlante. Analizamos tu vehículo,
+          entendemos lo que necesitas y garantizamos un trabajo impecable desde el primer día.
+        </p>
+
+        <!-- CTA -->
+        <a
+          href="https://wa.me/573054001112?text=Hola,%20quiero%20una%20cotizaci%C3%B3n"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-brand-gold hover:bg-amber-400 text-brand-black font-bold text-sm px-6 py-3 rounded-xl transition-all hover:scale-105"
+        >
+          Habla con un asesor
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Grid de razones -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        {reasons.map(({ icon, title, description }) => (
+          <div class="bg-brand-card border border-brand-border rounded-xl p-5 hover:border-brand-gold/30 transition-colors">
+            <div class="text-2xl mb-3" role="img" aria-hidden="true">{icon}</div>
+            <h3 class="font-semibold text-white text-sm mb-1.5">{title}</h3>
+            <p class="text-gray-400 text-xs leading-relaxed">{description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

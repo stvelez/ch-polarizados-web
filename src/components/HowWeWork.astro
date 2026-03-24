@@ -1,0 +1,87 @@
+---
+const steps = [
+  {
+    number: '01',
+    title: 'Contáctanos',
+    description: 'Escríbenos por WhatsApp o llámanos. Cuéntanos qué necesitas y te respondemos al instante.',
+    icon: '📱',
+  },
+  {
+    number: '02',
+    title: 'Asesoría y cotización',
+    description: 'Un experto te guía para elegir el material o sistema ideal para tu vehículo y presupuesto. Sin costos ocultos.',
+    icon: '💬',
+  },
+  {
+    number: '03',
+    title: 'Agendamos la cita',
+    description: 'Programamos la instalación en el horario que mejor te convenga. Respetamos tu tiempo.',
+    icon: '📅',
+  },
+  {
+    number: '04',
+    title: 'Instalación profesional',
+    description: 'Nuestros técnicos realizan el trabajo con precisión. Materiales premium, acabados perfectos.',
+    icon: '🔧',
+  },
+  {
+    number: '05',
+    title: '¡Listo! Con garantía',
+    description: 'Entregamos tu vehículo impecable y con garantía por escrito. Soporte post-servicio incluido.',
+    icon: '✅',
+  },
+];
+---
+
+<section class="py-20 lg:py-28 bg-brand-black overflow-hidden" aria-labelledby="howwework-heading">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-14">
+      <span class="text-brand-gold text-xs font-bold uppercase tracking-widest">Proceso</span>
+      <h2 id="howwework-heading" class="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-2 mb-4">
+        ¿Cómo trabajamos?
+      </h2>
+      <p class="text-gray-400 text-base max-w-xl mx-auto">
+        Un proceso simple, transparente y sin sorpresas. Desde que nos contactas hasta que recibes tu vehículo.
+      </p>
+    </div>
+
+    <!-- Steps -->
+    <div class="relative">
+      <!-- Línea conectora (desktop) -->
+      <div class="hidden lg:block absolute top-8 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-border to-transparent"></div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        {steps.map(({ number, title, description, icon }, i) => (
+          <div class="relative flex flex-col items-center text-center group">
+            <!-- Número / círculo -->
+            <div class="relative w-16 h-16 rounded-2xl bg-brand-card border border-brand-border group-hover:border-brand-gold/50 flex items-center justify-center mb-5 transition-all duration-300 group-hover:bg-brand-gold/5 z-10">
+              <span class="text-2xl" role="img" aria-hidden="true">{icon}</span>
+              <span class="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-brand-gold text-brand-black text-xs font-black flex items-center justify-center">
+                {i + 1}
+              </span>
+            </div>
+
+            <h3 class="font-semibold text-white text-sm mb-2">{title}</h3>
+            <p class="text-gray-400 text-xs leading-relaxed">{description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA bottom -->
+    <div class="text-center mt-14">
+      <a
+        href="https://wa.me/573054001112?text=Hola,%20quiero%20agendar%20un%20servicio"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-brand-gold hover:bg-amber-400 text-brand-black font-bold text-sm px-8 py-3.5 rounded-xl transition-all hover:scale-105 shadow-lg shadow-brand-gold/20"
+      >
+        Comenzar ahora
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

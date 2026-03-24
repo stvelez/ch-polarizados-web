@@ -1,0 +1,125 @@
+---
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title?: string;
+  items: FAQItem[];
+  schema?: boolean;
+}
+
+const {
+  title = 'Preguntas Frecuentes',
+  items,
+  schema = true,
+} = Astro.props;
+
+// Schema FAQPage para SEO
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": items.map(({ question, answer }) => ({
+    "@type": "Question",
+    "name": question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": answer,
+    },
+  })),
+};
+---
+
+{schema && (
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+)}
+
+<section class="py-20 lg:py-28 bg-brand-dark" aria-labelledby="faq-heading">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <span class="text-brand-gold text-xs font-bold uppercase tracking-widest">FAQ</span>
+      <h2 id="faq-heading" class="font-display font-black text-3xl sm:text-4xl text-white mt-2 mb-4">
+        {title}
+      </h2>
+      <p class="text-gray-400 text-sm">
+        ¿Tienes otra pregunta?{' '}
+        <a
+          href="https://wa.me/573054001112?text=Tengo%20una%20pregunta%20sobre%20sus%20servicios"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-brand-gold hover:underline"
+        >
+          Escríbenos por WhatsApp
+        </a>
+      </p>
+    </div>
+
+    <!-- Acordeón -->
+    <div class="space-y-3" role="list">
+      {items.map(({ question, answer }, i) => (
+        <div
+          class="faq-item bg-brand-card border border-brand-border rounded-xl overflow-hidden"
+          role="listitem"
+        >
+          <button
+            class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-4 text-left group"
+            aria-expanded="false"
+            aria-controls={`faq-answer-${i}`}
+            id={`faq-btn-${i}`}
+          >
+            <span class="font-medium text-white text-sm group-hover:text-brand-gold transition-colors">
+              {question}
+            </span>
+            <svg
+              class="faq-icon w-5 h-5 text-brand-gold shrink-0 transition-transform duration-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+            </svg>
+          </button>
+          <div
+            id={`faq-answer-${i}`}
+            role="region"
+            aria-labelledby={`faq-btn-${i}`}
+            class="faq-answer hidden px-6 pb-5"
+          >
+            <p class="text-gray-400 text-sm leading-relaxed">{answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const faqBtns = document.querySelectorAll<HTMLButtonElement>('.faq-btn');
+
+  faqBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      const answer = btn.nextElementSibling as HTMLElement;
+      const icon = btn.querySelector<SVGElement>('.faq-icon');
+
+      // Cerrar todos los demás
+      faqBtns.forEach(otherBtn => {
+        if (otherBtn !== btn) {
+          otherBtn.setAttribute('aria-expanded', 'false');
+          const otherAnswer = otherBtn.nextElementSibling as HTMLElement;
+          const otherIcon = otherBtn.querySelector<SVGElement>('.faq-icon');
+          otherAnswer?.classList.add('hidden');
+          otherIcon?.classList.remove('rotate-45');
+        }
+      });
+
+      // Toggle el actual
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      answer?.classList.toggle('hidden');
+      icon?.classList.toggle('rotate-45');
+    });
+  });
+</script>

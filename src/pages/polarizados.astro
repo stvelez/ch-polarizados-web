@@ -1,0 +1,318 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Hero from '@/components/Hero.astro';
+import FAQ from '@/components/FAQ.astro';
+import Gallery from '@/components/Gallery.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import MapSection from '@/components/MapSection.astro';
+import { polarizadosFaqs } from '@/data/faqs';
+import { galleryItems } from '@/data/gallery';
+import { testimonials } from '@/data/testimonials';
+
+// Solo items de polarizado para esta página
+const polarizadoGallery = galleryItems.filter(i => i.category === 'Polarizado');
+const polarizadoTestimonials = testimonials.filter(t =>
+  ['Polarizado Nanocerámica', 'Polarizado HD', 'Película de Seguridad'].includes(t.service)
+);
+
+// Schema Service para SEO
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Polarizado de Vehículos en Medellín",
+  "provider": {
+    "@type": "AutoRepair",
+    "name": "CH Polarizados",
+    "url": "https://chpolarizados.com",
+    "telephone": "+573103557126",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Cra. 64c #75a-15, Barrio Caribe",
+      "addressLocality": "Medellín",
+      "addressCountry": "CO"
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Medellín"
+  },
+  "description": "Instalación profesional de polarizado nanocerámica, HD y película de seguridad para todo tipo de vehículos en Medellín.",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Tipos de Polarizado",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Polarizado Nanocerámica",
+          "description": "Tecnología cerámica que bloquea el 99% de rayos UV y rechaza hasta el 60% del calor solar."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Polarizado HD",
+          "description": "Polarizado de alta calidad con bloqueo UV 99% y reducción de calor hasta el 40%."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Película de Seguridad",
+          "description": "Película que mantiene el vidrio unido ante impactos, protegiendo a los ocupantes."
+        }
+      }
+    ]
+  }
+};
+---
+
+<Layout
+  title="Polarizado de Vehículos en Medellín | CH Polarizados"
+  description="Polarizado nanocerámica, HD y película de seguridad para todo tipo de vehículos en Medellín. Instalación profesional, garantía por escrito. ¡Cotiza gratis!"
+  canonical="/polarizados"
+  schema={serviceSchema}
+>
+  <!-- Hero -->
+  <Hero
+    badge="Servicio especializado"
+    title="Polarizado de"
+    subtitle="Vehículos en Medellín"
+    description="Protege tu vehículo del calor y los rayos UV con la mejor tecnología en películas de control solar. Instalación profesional con garantía por escrito."
+    ctaLabel="Cotizar polarizado"
+    ctaHref="https://wa.me/573054001112?text=Hola,%20quiero%20cotizar%20un%20polarizado"
+    stats={[
+      { value: '99%', label: 'Bloqueo rayos UV' },
+      { value: '60%', label: 'Rechazo de calor' },
+      { value: '5★',  label: 'Satisfacción' },
+    ]}
+  />
+
+  <!-- Tipos de polarizado -->
+  <section class="py-20 lg:py-28 bg-brand-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="text-brand-gold text-xs font-bold uppercase tracking-widest">Tipos disponibles</span>
+        <h2 class="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-2 mb-4">
+          ¿Qué tipo de polarizado necesitas?
+        </h2>
+        <p class="text-gray-400 text-base max-w-xl mx-auto">
+          Te asesoramos para encontrar la opción que mejor se adapte a tu vehículo, clima y presupuesto.
+        </p>
+      </div>
+
+      <div class="space-y-8">
+
+        <!-- Nanocerámica -->
+        <div id="nanoceramica" class="bg-brand-card border border-brand-border rounded-2xl p-8 lg:p-10 scroll-mt-24">
+          <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-3xl">🌟</span>
+                <span class="bg-brand-gold text-brand-black text-xs font-bold px-3 py-1 rounded-full">Premium</span>
+              </div>
+              <h3 class="font-display font-black text-2xl sm:text-3xl text-white mb-4">
+                Polarizado Nanocerámica
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                La solución más avanzada del mercado. Fabricada con partículas cerámicas de nanotecnología
+                que rechazan el calor y los rayos UV sin contener metal, por lo que no interfiere con señales de
+                GPS, radio ni sistemas de peaje electrónico.
+              </p>
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                {[
+                  { label: 'Bloqueo UV', value: '99%' },
+                  { label: 'Rechazo calor', value: 'Hasta 60%' },
+                  { label: 'Garantía', value: '5 años' },
+                  { label: 'Interferencia señal', value: 'Ninguna' },
+                ].map(({ label, value }) => (
+                  <div class="bg-brand-black rounded-xl p-4">
+                    <div class="text-brand-gold font-bold text-lg">{value}</div>
+                    <div class="text-gray-400 text-xs">{label}</div>
+                  </div>
+                ))}
+              </div>
+              <a
+                href="https://wa.me/573054001112?text=Hola,%20quiero%20cotizar%20el%20polarizado%20nanocer%C3%A1mica"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 bg-brand-gold hover:bg-amber-400 text-brand-black font-bold text-sm px-6 py-3 rounded-xl transition-all hover:scale-105"
+              >
+                Cotizar Nanocerámica
+              </a>
+            </div>
+            <div class="mt-8 lg:mt-0">
+              <ul class="space-y-3">
+                {[
+                  'No interfiere con GPS, Bluetooth ni señales de celular',
+                  'Reduce drásticamente el calor interior del vehículo',
+                  'Protección máxima contra rayos UV y UVB',
+                  'Mayor vida útil que películas convencionales',
+                  'Disponible en diferentes porcentajes de oscuridad',
+                  'No se decolora ni amarilla con el tiempo',
+                  'Instalación limpia y garantía por escrito',
+                ].map(feature => (
+                  <li class="flex items-start gap-3 text-sm text-gray-300">
+                    <svg class="w-5 h-5 text-brand-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- HD -->
+        <div id="hd" class="bg-brand-card border border-brand-border rounded-2xl p-8 lg:p-10 scroll-mt-24">
+          <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-3xl">🪟</span>
+                <span class="bg-brand-card border border-brand-border text-gray-300 text-xs font-semibold px-3 py-1 rounded-full">Popular</span>
+              </div>
+              <h3 class="font-display font-black text-2xl sm:text-3xl text-white mb-4">
+                Polarizado HD
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                Nuestra opción más popular. Excelente relación calidad-precio con alta claridad visual,
+                protección UV completa y reducción considerable del calor. Ideal para la mayoría de vehículos
+                y presupuestos.
+              </p>
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                {[
+                  { label: 'Bloqueo UV', value: '99%' },
+                  { label: 'Rechazo calor', value: 'Hasta 40%' },
+                  { label: 'Garantía', value: '3 años' },
+                  { label: 'Relación c/p', value: 'Excelente' },
+                ].map(({ label, value }) => (
+                  <div class="bg-brand-black rounded-xl p-4">
+                    <div class="text-brand-gold font-bold text-lg">{value}</div>
+                    <div class="text-gray-400 text-xs">{label}</div>
+                  </div>
+                ))}
+              </div>
+              <a
+                href="https://wa.me/573054001112?text=Hola,%20quiero%20cotizar%20el%20polarizado%20HD"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 bg-brand-gold hover:bg-amber-400 text-brand-black font-bold text-sm px-6 py-3 rounded-xl transition-all hover:scale-105"
+              >
+                Cotizar Polarizado HD
+              </a>
+            </div>
+            <div class="mt-8 lg:mt-0">
+              <ul class="space-y-3">
+                {[
+                  'Protección UV 99% para piel y tapicería',
+                  'Reducción de calor interior hasta el 40%',
+                  'Alta claridad óptica sin distorsión',
+                  'Acabado uniforme y profesional',
+                  'Múltiples tonos de oscuridad disponibles',
+                  'Instalación rápida en 2 a 4 horas',
+                  'Garantía de 3 años por escrito',
+                ].map(feature => (
+                  <li class="flex items-start gap-3 text-sm text-gray-300">
+                    <svg class="w-5 h-5 text-brand-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seguridad -->
+        <div id="seguridad" class="bg-brand-card border border-brand-border rounded-2xl p-8 lg:p-10 scroll-mt-24">
+          <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-3xl">🛡️</span>
+                <span class="bg-brand-card border border-brand-border text-gray-300 text-xs font-semibold px-3 py-1 rounded-full">Seguridad</span>
+              </div>
+              <h3 class="font-display font-black text-2xl sm:text-3xl text-white mb-4">
+                Película de Seguridad
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                Diseñada para mantener el vidrio unido ante impactos accidentales o intentos de robo.
+                Reduce el riesgo de lesiones por fragmentos de vidrio y dificulta la entrada de personas
+                no autorizadas al vehículo.
+              </p>
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                {[
+                  { label: 'Anti fragmentos', value: '✓' },
+                  { label: 'Anti intrusión', value: 'Alta' },
+                  { label: 'Bloqueo UV', value: '99%' },
+                  { label: 'Combinable', value: 'Sí' },
+                ].map(({ label, value }) => (
+                  <div class="bg-brand-black rounded-xl p-4">
+                    <div class="text-brand-gold font-bold text-lg">{value}</div>
+                    <div class="text-gray-400 text-xs">{label}</div>
+                  </div>
+                ))}
+              </div>
+              <a
+                href="https://wa.me/573054001112?text=Hola,%20quiero%20cotizar%20la%20pel%C3%ADcula%20de%20seguridad"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 bg-brand-gold hover:bg-amber-400 text-brand-black font-bold text-sm px-6 py-3 rounded-xl transition-all hover:scale-105"
+              >
+                Cotizar Película de Seguridad
+              </a>
+            </div>
+            <div class="mt-8 lg:mt-0">
+              <ul class="space-y-3">
+                {[
+                  'Mantiene el vidrio unido ante impactos',
+                  'Reduce el riesgo de robo y vandalismo',
+                  'Protege a los ocupantes de fragmentos',
+                  'Disponible en versión transparente o con color',
+                  'Compatible con otros tipos de polarizado',
+                  'Aplicable en vehículos, casas y locales',
+                  'Instalación profesional con garantía',
+                ].map(feature => (
+                  <li class="flex items-start gap-3 text-sm text-gray-300">
+                    <svg class="w-5 h-5 text-brand-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Galería solo de polarizados -->
+  {polarizadoGallery.length > 0 && (
+    <Gallery
+      title="Trabajos de Polarizado"
+      subtitle="Resultados reales en vehículos de nuestros clientes"
+      items={polarizadoGallery}
+    />
+  )}
+
+  <!-- Testimonios de polarizado -->
+  {polarizadoTestimonials.length > 0 && (
+    <Testimonials testimonials={polarizadoTestimonials} />
+  )}
+
+  <!-- FAQ polarizados -->
+  <FAQ
+    title="Preguntas sobre Polarizado"
+    items={polarizadosFaqs}
+  />
+
+  <!-- Mapa -->
+  <MapSection />
+</Layout>
