@@ -1,7 +1,8 @@
 ---
+const phone = '+573054001112';
 const address = 'Cra. 64c #75a-15, Barrio Caribe, Medellín';
-const mapsUrl = 'https://maps.google.com/?q=Cra.+64c+%2375a-15+Medell%C3%ADn+Colombia';
-const embedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.6!2d-75.5948!3d6.2518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCH+Polarizados!5e0!3m2!1ses!2sco!4v1';
+const mapsUrl = 'https://www.google.com/maps/@6.274175,-75.573164,21z';
+const embedUrl = 'https://maps.google.com/maps?q=6.274175,-75.573164&z=21&output=embed';
 ---
 
 <section class="py-20 lg:py-28 bg-brand-black" aria-labelledby="map-heading">
@@ -50,8 +51,8 @@ const embedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.6!2
             </div>
             <div>
               <p class="text-white font-semibold text-sm mb-0.5">Teléfono</p>
-              <a href="tel:+573103557126" class="text-gray-400 text-sm hover:text-white transition-colors">
-                +57 310 355 7126
+              <a href={`tel:${phone}`} class="text-gray-400 text-sm hover:text-white transition-colors">
+                +57 305 400 1112
               </a>
             </div>
           </div>
