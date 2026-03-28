@@ -23,45 +23,53 @@ export interface GalleryItem {
 export const galleryItems: GalleryItem[] = [
   // ── Polarizados ──────────────────────────────────────────────────────────
   {
-    src: '/images/gallery/polarizado-nanocermica-suv-01.jpg',
-    alt: 'Polarizado Nanocerámica SUV - CH Polarizados Medellín',
+    src: '/images/gallery/polarizado-nissan-frontier-01.jpg',
+    alt: 'Polarizado Nissan Frontier - CH Polarizados Medellín',
     category: 'Polarizado',
   },
   {
-    src: '/images/gallery/polarizado-hd-sedan-01.jpg',
-    alt: 'Polarizado HD Sedan - CH Polarizados Medellín',
+    src: '/images/gallery/polarizado-nissan-frontier-02.jpg',
+    alt: 'Polarizado Nissan Frontier vista frontal - CH Polarizados Medellín',
     category: 'Polarizado',
   },
   {
-    src: '/images/gallery/polarizado-nanocermica-pickup-01.jpg',
-    alt: 'Polarizado Nanocerámica Pick-up - CH Polarizados Medellín',
+    src: '/images/gallery/polarizado-nissan-xtrail-01.jpg',
+    alt: 'Polarizado Nissan X-Trail - CH Polarizados Medellín',
     category: 'Polarizado',
   },
   {
-    src: '/images/gallery/pelicula-seguridad-01.jpg',
-    alt: 'Película de Seguridad - CH Polarizados Medellín',
+    src: '/images/gallery/polarizado-nissan-xtrail-02.jpg',
+    alt: 'Polarizado Nissan X-Trail instalación - CH Polarizados Medellín',
     category: 'Polarizado',
   },
-  // ── Sonido ───────────────────────────────────────────────────────────────
   {
-    src: '/images/gallery/sonido-subwoofer-01.jpg',
-    alt: 'Instalación Subwoofer y Amplificador - CH Polarizados Medellín',
-    category: 'Sonido',
+    src: '/images/gallery/polarizado-toyota-4runner-01.jpg',
+    alt: 'Polarizado Toyota 4Runner - CH Polarizados Medellín',
+    category: 'Polarizado',
   },
   {
-    src: '/images/gallery/sonido-parlantes-01.jpg',
-    alt: 'Instalación Parlantes Puertas - CH Polarizados Medellín',
-    category: 'Sonido',
+    src: '/images/gallery/polarizado-kia-sportage-01.jpg',
+    alt: 'Polarizado Kia Sportage - CH Polarizados Medellín',
+    category: 'Polarizado',
   },
   {
-    src: '/images/gallery/sonido-autoradio-01.jpg',
-    alt: 'Instalación Autoradio Táctil - CH Polarizados Medellín',
-    category: 'Sonido',
+    src: '/images/gallery/polarizado-trabajo-01.jpg',
+    alt: 'Trabajo de polarizado - CH Polarizados Medellín',
+    category: 'Polarizado',
   },
-  // ── Eléctrico ─────────────────────────────────────────────────────────────
   {
-    src: '/images/gallery/electrico-radar-01.jpg',
-    alt: 'Instalación Sensores de Parqueo - CH Polarizados Medellín',
-    category: 'Eléctrico',
+    src: '/images/gallery/polarizado-trabajo-02.jpg',
+    alt: 'Trabajo de polarizado - CH Polarizados Medellín',
+    category: 'Polarizado',
+  },
+  {
+    src: '/images/gallery/polarizado-trabajo-03.jpg',
+    alt: 'Trabajo de polarizado - CH Polarizados Medellín',
+    category: 'Polarizado',
+  },
+  {
+    src: '/images/gallery/polarizado-trabajo-04.jpg',
+    alt: 'Trabajo de polarizado - CH Polarizados Medellín',
+    category: 'Polarizado',
   },
 ];

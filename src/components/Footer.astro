@@ -43,11 +43,12 @@ const phone = '+573054001112';
         <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Servicios</h3>
         <ul class="space-y-2.5">
           {[
-            { label: 'Polarizado Nanocerámica', href: '/polarizados#nanoceramica' },
-            { label: 'Polarizado HD',            href: '/polarizados#hd'           },
-            { label: 'Película de Seguridad',    href: '/polarizados#seguridad'    },
-            { label: 'Sonido para Carros',        href: '/sonido'                   },
-            { label: 'Eléctrico Automotriz',      href: '/sonido#electrico'         },
+            { label: 'Polarizado Nanocerámica',    href: '/polarizados#nanoceramica' },
+            { label: 'Polarizado HD',              href: '/polarizados#hd'           },
+            { label: 'Sonido para Carros',         href: '/sonido'                   },
+            { label: 'Alarmas y Bloqueo',          href: '/sonido#alarmas'           },
+            { label: 'Cámaras y Sensores',         href: '/sonido#camaras'           },
+            { label: 'Eléctrico Automotriz',       href: '/sonido#electrico'         },
           ].map(({ label, href }) => (
             <li>
               <a href={href} class="text-gray-400 hover:text-brand-red text-sm transition-colors flex items-center gap-1.5">
@@ -88,7 +89,7 @@ const phone = '+573054001112';
                 d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
             <span class="text-gray-400 text-sm">
-              Lun – Vie: 8:00 am – 6:00 pm<br/>Sáb: 8:00 am – 2:00 pm
+              Lun – Sáb: 8:30 am – 6:00 pm
             </span>
           </li>
         </ul>
