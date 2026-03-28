@@ -1,0 +1,8 @@
+#!/bin/sh
+echo "Verificando build antes del commit..."
+npm run build
+if [ $? -ne 0 ]; then
+  echo "El build fallo. Corrige los errores antes de hacer commit."
+  exit 1
+fi
+echo "Build exitoso."
