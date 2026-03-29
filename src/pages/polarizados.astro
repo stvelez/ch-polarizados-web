@@ -15,6 +15,16 @@ const polarizadoTestimonials = testimonials.filter(t =>
   ['Polarizado Nanocerámica', 'Polarizado HD', 'Película de Seguridad'].includes(t.service)
 );
 
+// Breadcrumb schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://chpolarizados.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Polarizado de Vehículos", "item": "https://chpolarizados.com/polarizados/" },
+  ],
+};
+
 // Schema Service para SEO
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -74,7 +84,7 @@ const serviceSchema = {
   title="Polarizado de Vehículos en Medellín | CH Polarizados"
   description="Polarizado nanocerámica, HD y película de seguridad para todo tipo de vehículos en Medellín. Instalación profesional, garantía por escrito. ¡Cotiza gratis!"
   canonical="/polarizados"
-  schema={serviceSchema}
+  schema={[serviceSchema, breadcrumbSchema] as any}
 >
   <!-- Hero -->
   <Hero

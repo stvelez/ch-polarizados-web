@@ -1,0 +1,321 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Hero from '@/components/Hero.astro';
+import FAQ from '@/components/FAQ.astro';
+import MapSection from '@/components/MapSection.astro';
+
+const faqItems = [
+  {
+    question: '¿La cámara de reversa se integra con mi autoradio actual?',
+    answer:
+      'En la mayoría de los casos sí, siempre que tu autoradio tenga entrada de video (RCA o entrada de cámara trasera). Si no tiene esa entrada, podemos instalar una pantalla adicional o cambiar el autoradio por uno compatible. Te asesoramos antes de la instalación.',
+  },
+  {
+    question: '¿Qué son los sensores de parqueo y cómo funcionan?',
+    answer:
+      'Los sensores de parqueo (radares) son sensores ultrasónicos que se instalan en el parachoques trasero o delantero. Emiten una señal acústica que se vuelve más rápida a medida que te acercas a un obstáculo, alertándote para evitar golpes al estacionar.',
+  },
+  {
+    question: '¿Cuántas cámaras puedo instalar?',
+    answer:
+      'Podemos instalar cámara trasera, cámara delantera y cámaras laterales según tus necesidades. Los sistemas DVR de espejo pueden grabar desde múltiples ángulos al mismo tiempo. Consultamos tu caso antes de recomendar el sistema ideal.',
+  },
+  {
+    question: '¿El espejo DVR reemplaza el espejo original?',
+    answer:
+      'El espejo DVR se instala sobre tu espejo retrovisor original. Tiene la misma función de espejo, pero además muestra la imagen de la cámara trasera al poner en reversa y puede grabar continuamente mientras el vehículo está encendido.',
+  },
+  {
+    question: '¿Qué garantía tienen las cámaras y sensores instalados?',
+    answer:
+      'La instalación tiene garantía de 1 año. Los equipos (cámara, sensores, espejo DVR) tienen la garantía del fabricante. Ante cualquier falla cubierta, la revisamos sin costo en nuestro taller.',
+  },
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Instalación de Cámaras de Reversa y Sensores de Parqueo en Medellín",
+  "provider": {
+    "@type": "AutoRepair",
+    "name": "CH Polarizados",
+    "url": "https://chpolarizados.com",
+    "telephone": "+573054001112",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Cra. 64c #75a-15, Barrio Caribe",
+      "addressLocality": "Medellín",
+      "addressCountry": "CO"
+    }
+  },
+  "areaServed": { "@type": "City", "name": "Medellín" },
+  "description": "Instalación de cámaras de reversa, sensores de parqueo, espejos DVR y sistemas de visión para vehículos en Medellín. Técnicos especializados con garantía incluida.",
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://chpolarizados.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Cámaras y Sensores", "item": "https://chpolarizados.com/camaras/" },
+  ],
+};
+---
+
+<Layout
+  title="Cámara de Reversa y Sensores de Parqueo en Medellín | CH Polarizados"
+  description="Instalación de cámaras de reversa, sensores de parqueo y espejos DVR para vehículos en Medellín. Técnicos especializados, garantía por escrito. ¡Cotiza gratis por WhatsApp!"
+  canonical="/camaras"
+  schema={[serviceSchema, breadcrumbSchema] as any}
+>
+  <!-- Hero -->
+  <Hero
+    badge="Visión y seguridad"
+    title="Cámaras y Sensores"
+    subtitle="de Parqueo en Medellín"
+    description="Instala cámaras de reversa, sensores de parqueo y espejos DVR en tu vehículo en Medellín. Mayor seguridad y comodidad al maniobrar, con instalación profesional y garantía por escrito."
+    ctaLabel="Cotizar cámara o sensores"
+    ctaHref="https://wa.me/573054001112?text=Hola,%20quiero%20cotizar%20c%C3%A1mara%20de%20reversa%20o%20sensores%20de%20parqueo"
+    stats={[
+      { value: '10+', label: 'Años de experiencia' },
+      { value: '1 año', label: 'Garantía instalación' },
+      { value: '5★',  label: 'Satisfacción' },
+    ]}
+  />
+
+  <!-- Servicios -->
+  <section class="py-20 lg:py-28 bg-brand-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="text-brand-red text-xs font-bold uppercase tracking-widest">Soluciones de visión</span>
+        <h2 class="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-2 mb-4">
+          Sistemas de cámaras y sensores
+        </h2>
+        <p class="text-gray-400 text-base max-w-xl mx-auto">
+          Estaciona y maniobra con total seguridad. Instalamos el sistema que mejor se adapta a tu vehículo.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+
+        <!-- Cámara de reversa -->
+        <div id="camara-reversa" class="bg-brand-card border border-brand-border rounded-2xl p-8 lg:p-10 scroll-mt-24">
+          <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-3xl">📷</span>
+                <span class="bg-brand-red text-white text-xs font-bold px-3 py-1 rounded-full">Más popular</span>
+              </div>
+              <h3 class="font-display font-black text-2xl sm:text-3xl text-white mb-4">
+                Cámara de Reversa
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                Instalamos cámaras traseras de alta definición integradas a tu autoradio o pantalla. Ver lo que
+                hay detrás al dar reversa reduce drásticamente el riesgo de golpes y accidentes en maniobras.
+                Compatible con la mayoría de autoradios con entrada de video.
+              </p>
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                {[
+                  { label: 'Visión nocturna', value: '✓' },
+                  { label: 'Gran angular', value: '170°' },
+                  { label: 'Líneas guía', value: 'Incluidas' },
+                  { label: 'Garantía', value: '1 año' },
+                ].map(({ label, value }) => (
+                  <div class="bg-brand-black rounded-xl p-4">
+                    <div class="text-brand-red font-bold text-lg">{value}</div>
+                    <div class="text-gray-400 text-xs">{label}</div>
+                  </div>
+                ))}
+              </div>
+              <a
+                href="https://wa.me/573054001112?text=Hola,%20quiero%20cotizar%20c%C3%A1mara%20de%20reversa"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-hover text-white font-bold text-sm px-6 py-3 rounded-xl transition-all hover:scale-105"
+              >
+                Cotizar cámara de reversa
+              </a>
+            </div>
+            <div class="mt-8 lg:mt-0">
+              <ul class="space-y-3">
+                {[
+                  'Imagen en HD al dar reversa automáticamente',
+                  'Ángulo de visión de hasta 170°',
+                  'Visión nocturna para maniobras con poca luz',
+                  'Líneas guía de distancia en la pantalla',
+                  'Integrada con el autoradio existente o nuevo',
+                  'Instalación limpia sin cables visibles',
+                  'Garantía de 1 año en instalación y cámara',
+                ].map(feature => (
+                  <li class="flex items-start gap-3 text-sm text-gray-300">
+                    <svg class="w-5 h-5 text-brand-red shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sensores de parqueo -->
+        <div id="sensores" class="bg-brand-card border border-brand-border rounded-2xl p-8 lg:p-10 scroll-mt-24">
+          <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-3xl">🅿️</span>
+                <span class="bg-brand-card border border-brand-border text-gray-300 text-xs font-semibold px-3 py-1 rounded-full">Recomendado</span>
+              </div>
+              <h3 class="font-display font-black text-2xl sm:text-3xl text-white mb-4">
+                Sensores de Parqueo (Radares)
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                Los sensores ultrasónicos emiten una alerta sonora que aumenta a medida que te acercas a un
+                obstáculo. Ideal para lugares de parqueo estrechos, centros comerciales y vías congestionadas.
+                Disponibles para parachoques trasero, delantero o ambos.
+              </p>
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                {[
+                  { label: 'Sensores traseros', value: '4' },
+                  { label: 'Sensores delanteros', value: 'Opcional' },
+                  { label: 'Alerta sonora', value: '✓' },
+                  { label: 'Garantía', value: '1 año' },
+                ].map(({ label, value }) => (
+                  <div class="bg-brand-black rounded-xl p-4">
+                    <div class="text-brand-red font-bold text-lg">{value}</div>
+                    <div class="text-gray-400 text-xs">{label}</div>
+                  </div>
+                ))}
+              </div>
+              <a
+                href="https://wa.me/573054001112?text=Hola,%20quiero%20cotizar%20sensores%20de%20parqueo"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-hover text-white font-bold text-sm px-6 py-3 rounded-xl transition-all hover:scale-105"
+              >
+                Cotizar sensores de parqueo
+              </a>
+            </div>
+            <div class="mt-8 lg:mt-0">
+              <ul class="space-y-3">
+                {[
+                  'Alerta sonora proporcional a la distancia del obstáculo',
+                  '4 sensores traseros estándar incluidos',
+                  'Opción de sensores delanteros adicionales',
+                  'Compatible con cámara de reversa',
+                  'Display digital opcional para ver la distancia',
+                  'Instalación integrada al parachoques sin daños',
+                  'Garantía de 1 año en instalación y sensores',
+                ].map(feature => (
+                  <li class="flex items-start gap-3 text-sm text-gray-300">
+                    <svg class="w-5 h-5 text-brand-red shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Espejo DVR -->
+        <div id="espejo-dvr" class="bg-brand-card border border-brand-border rounded-2xl p-8 lg:p-10 scroll-mt-24">
+          <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-3xl">🪞</span>
+                <span class="bg-brand-card border border-brand-border text-gray-300 text-xs font-semibold px-3 py-1 rounded-full">Premium</span>
+              </div>
+              <h3 class="font-display font-black text-2xl sm:text-3xl text-white mb-4">
+                Espejo Retrovisor con Cámara DVR
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                El espejo DVR reemplaza tu retrovisor estándar por uno con pantalla integrada. Graba continuamente
+                mientras conduces (ideal como evidencia en accidentes), muestra la cámara trasera al dar reversa
+                y mejora notablemente la visibilidad trasera.
+              </p>
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                {[
+                  { label: 'Grabación continua', value: '✓' },
+                  { label: 'Cámara trasera', value: 'Incluida' },
+                  { label: 'Pantalla', value: 'LCD HD' },
+                  { label: 'Garantía', value: '1 año' },
+                ].map(({ label, value }) => (
+                  <div class="bg-brand-black rounded-xl p-4">
+                    <div class="text-brand-red font-bold text-lg">{value}</div>
+                    <div class="text-gray-400 text-xs">{label}</div>
+                  </div>
+                ))}
+              </div>
+              <a
+                href="https://wa.me/573054001112?text=Hola,%20quiero%20cotizar%20espejo%20DVR%20con%20c%C3%A1mara"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-hover text-white font-bold text-sm px-6 py-3 rounded-xl transition-all hover:scale-105"
+              >
+                Cotizar espejo DVR
+              </a>
+            </div>
+            <div class="mt-8 lg:mt-0">
+              <ul class="space-y-3">
+                {[
+                  'Grabación continua en tarjeta SD como evidencia de accidentes',
+                  'Pantalla LCD que muestra la cámara trasera al reversar',
+                  'Mejora la visibilidad trasera comparado con espejo convencional',
+                  'Grabación en bucle automática sin llenar la memoria',
+                  'Se instala sobre el espejo original del vehículo',
+                  'Compatible con todos los tipos de vehículos',
+                  'Garantía de 1 año en instalación y equipo',
+                ].map(feature => (
+                  <li class="flex items-start gap-3 text-sm text-gray-300">
+                    <svg class="w-5 h-5 text-brand-red shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-brand-dark border-y border-brand-border">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 class="font-display font-black text-2xl sm:text-3xl text-white mb-4">
+        Mejora la seguridad de tu vehículo hoy
+      </h2>
+      <p class="text-gray-400 text-sm mb-8">
+        Cuéntanos qué necesitas. Te cotizamos de inmediato y agendamos tu cita en el taller
+        del Barrio Caribe, Medellín.
+      </p>
+      <a
+        href="https://wa.me/573054001112?text=Hola,%20quiero%20cotizar%20c%C3%A1mara%20de%20reversa%20o%20sensores%20para%20mi%20veh%C3%ADculo"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-hover text-white font-bold px-8 py-4 rounded-xl transition-all hover:scale-105 shadow-lg shadow-brand-red/20"
+      >
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.112 1.522 5.84L0 24l6.336-1.502A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.816 9.816 0 01-5.003-1.37l-.36-.213-3.76.891.932-3.667-.234-.376A9.818 9.818 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/>
+        </svg>
+        Cotizar por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <FAQ
+    title="Preguntas sobre Cámaras y Sensores"
+    items={faqItems}
+  />
+
+  <!-- Mapa -->
+  <MapSection />
+</Layout>

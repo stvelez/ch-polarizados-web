@@ -1,0 +1,285 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Hero from '@/components/Hero.astro';
+import FAQ from '@/components/FAQ.astro';
+import MapSection from '@/components/MapSection.astro';
+
+const faqItems = [
+  {
+    question: '¿Qué tipo de alarmas instalan?',
+    answer:
+      'Instalamos sistemas de alarma con y sin presencia, con control remoto, sirena, sensor volumétrico y sensor perimetral. También trabajamos con marcas reconocidas del mercado y podemos asesorarte según el nivel de protección que necesitas para tu vehículo.',
+  },
+  {
+    question: '¿El bloqueo centralizado de puertas es compatible con todos los carros?',
+    answer:
+      'Sí. Instalamos kits de bloqueo centralizado en vehículos que vienen de fábrica con seguro manual. El kit incluye actuadores eléctricos en todas las puertas y control remoto o integración con la alarma.',
+  },
+  {
+    question: '¿Cuánto tiempo tarda la instalación de una alarma?',
+    answer:
+      'La instalación de un sistema de alarma básico toma entre 2 y 3 horas. Si se combina con bloqueo centralizado o seguros eléctricos puede tomar hasta 4 horas. Siempre coordinamos la cita con anticipación.',
+  },
+  {
+    question: '¿Qué garantía tienen los sistemas de alarma?',
+    answer:
+      'La instalación tiene garantía de 1 año. Los equipos tienen la garantía del fabricante. Ante cualquier falla cubierta por garantía, venimos a revisarla sin costo adicional.',
+  },
+  {
+    question: '¿Puedo integrar la alarma con los seguros de las puertas que ya tengo?',
+    answer:
+      'En la mayoría de los casos sí. Revisamos el sistema eléctrico de tu vehículo y realizamos la integración de forma profesional para que la alarma active y desactive los seguros automáticamente con el control remoto.',
+  },
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Instalación de Alarmas y Bloqueo de Puertas en Medellín",
+  "provider": {
+    "@type": "AutoRepair",
+    "name": "CH Polarizados",
+    "url": "https://chpolarizados.com",
+    "telephone": "+573054001112",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Cra. 64c #75a-15, Barrio Caribe",
+      "addressLocality": "Medellín",
+      "addressCountry": "CO"
+    }
+  },
+  "areaServed": { "@type": "City", "name": "Medellín" },
+  "description": "Instalación profesional de alarmas, bloqueo centralizado y seguros eléctricos para vehículos en Medellín. Técnicos especializados con garantía incluida.",
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://chpolarizados.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Alarmas y Bloqueo de Puertas", "item": "https://chpolarizados.com/alarmas/" },
+  ],
+};
+---
+
+<Layout
+  title="Alarmas y Bloqueo de Puertas para Carros en Medellín | CH Polarizados"
+  description="Instalación de alarmas, bloqueo centralizado y seguros eléctricos para vehículos en Medellín. Técnicos especializados, materiales de calidad y garantía por escrito. ¡Cotiza gratis!"
+  canonical="/alarmas"
+  schema={[serviceSchema, breadcrumbSchema] as any}
+>
+  <!-- Hero -->
+  <Hero
+    badge="Seguridad automotriz"
+    title="Alarmas y Bloqueo"
+    subtitle="de Puertas en Medellín"
+    description="Protege tu vehículo con sistemas de alarma y bloqueo centralizado instalados por técnicos especializados en Medellín. Seguridad real desde el primer día, con garantía por escrito."
+    ctaLabel="Cotizar alarma ahora"
+    ctaHref="https://wa.me/573054001112?text=Hola,%20quiero%20cotizar%20una%20alarma%20o%20bloqueo%20de%20puertas"
+    stats={[
+      { value: '10+', label: 'Años de experiencia' },
+      { value: '1 año', label: 'Garantía instalación' },
+      { value: '5★',  label: 'Satisfacción' },
+    ]}
+  />
+
+  <!-- Servicios de seguridad -->
+  <section class="py-20 lg:py-28 bg-brand-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="text-brand-red text-xs font-bold uppercase tracking-widest">Seguridad vehicular</span>
+        <h2 class="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-2 mb-4">
+          ¿Qué sistema de seguridad necesitas?
+        </h2>
+        <p class="text-gray-400 text-base max-w-xl mx-auto">
+          Instalamos sistemas de alarma y bloqueo adaptados a tu vehículo y presupuesto.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+
+        <!-- Alarma -->
+        <div id="alarma" class="bg-brand-card border border-brand-border rounded-2xl p-8 lg:p-10 scroll-mt-24">
+          <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-3xl">🔒</span>
+                <span class="bg-brand-red text-white text-xs font-bold px-3 py-1 rounded-full">Recomendado</span>
+              </div>
+              <h3 class="font-display font-black text-2xl sm:text-3xl text-white mb-4">
+                Sistema de Alarma
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                Instalamos sistemas de alarma con sirena, sensor perimetral y control remoto. Compatible con
+                todos los vehículos. Te alerta ante cualquier intento de intrusión y disuade a los ladrones
+                con la activación de sirena y luces.
+              </p>
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                {[
+                  { label: 'Sensor perimetral', value: '✓' },
+                  { label: 'Control remoto', value: '✓' },
+                  { label: 'Sirena de aviso', value: '✓' },
+                  { label: 'Garantía', value: '1 año' },
+                ].map(({ label, value }) => (
+                  <div class="bg-brand-black rounded-xl p-4">
+                    <div class="text-brand-red font-bold text-lg">{value}</div>
+                    <div class="text-gray-400 text-xs">{label}</div>
+                  </div>
+                ))}
+              </div>
+              <a
+                href="https://wa.me/573054001112?text=Hola,%20quiero%20cotizar%20una%20alarma%20para%20mi%20carro"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-hover text-white font-bold text-sm px-6 py-3 rounded-xl transition-all hover:scale-105"
+              >
+                Cotizar alarma
+              </a>
+            </div>
+            <div class="mt-8 lg:mt-0">
+              <ul class="space-y-3">
+                {[
+                  'Disuade robos con activación de sirena y luces',
+                  'Control remoto para armar y desarmar',
+                  'Sensor de movimiento y perimetral',
+                  'Compatible con seguros eléctricos y bloqueo centralizado',
+                  'Instalación limpia sin dañar el cableado original',
+                  'Técnicos certificados con experiencia comprobada',
+                  'Garantía de instalación por 1 año',
+                ].map(feature => (
+                  <li class="flex items-start gap-3 text-sm text-gray-300">
+                    <svg class="w-5 h-5 text-brand-red shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bloqueo centralizado -->
+        <div id="bloqueo" class="bg-brand-card border border-brand-border rounded-2xl p-8 lg:p-10 scroll-mt-24">
+          <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-3xl">🚗</span>
+                <span class="bg-brand-card border border-brand-border text-gray-300 text-xs font-semibold px-3 py-1 rounded-full">Popular</span>
+              </div>
+              <h3 class="font-display font-black text-2xl sm:text-3xl text-white mb-4">
+                Bloqueo Centralizado de Puertas
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                Convierte los seguros manuales de tu vehículo en eléctricos con mando a distancia.
+                Todas las puertas se abren y cierran desde el control remoto o integrado con la llave original.
+                Ideal para vehículos de modelos anteriores que no traen este sistema de fábrica.
+              </p>
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                {[
+                  { label: 'Puertas', value: '4' },
+                  { label: 'Control remoto', value: '✓' },
+                  { label: 'Integración alarma', value: '✓' },
+                  { label: 'Garantía', value: '1 año' },
+                ].map(({ label, value }) => (
+                  <div class="bg-brand-black rounded-xl p-4">
+                    <div class="text-brand-red font-bold text-lg">{value}</div>
+                    <div class="text-gray-400 text-xs">{label}</div>
+                  </div>
+                ))}
+              </div>
+              <a
+                href="https://wa.me/573054001112?text=Hola,%20quiero%20cotizar%20bloqueo%20centralizado%20de%20puertas"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-hover text-white font-bold text-sm px-6 py-3 rounded-xl transition-all hover:scale-105"
+              >
+                Cotizar bloqueo centralizado
+              </a>
+            </div>
+            <div class="mt-8 lg:mt-0">
+              <ul class="space-y-3">
+                {[
+                  'Cierre y apertura de todas las puertas con un solo botón',
+                  'Actuadores eléctricos de alta calidad en cada puerta',
+                  'Integrable con el sistema de alarma del vehículo',
+                  'Compatible con la llave original si el vehículo tiene botón',
+                  'Instalación sin modificar el cableado de fábrica',
+                  'Incluye control remoto de repuesto',
+                  'Garantía de 1 año en instalación y actuadores',
+                ].map(feature => (
+                  <li class="flex items-start gap-3 text-sm text-gray-300">
+                    <svg class="w-5 h-5 text-brand-red shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Por qué en CH Polarizados -->
+  <section class="py-16 bg-brand-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="font-display font-black text-2xl sm:text-3xl text-white">
+          ¿Por qué instalar la alarma con nosotros?
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {[
+          { icon: '🛡️', title: 'Técnicos especializados', desc: 'Más de 10 años instalando sistemas de seguridad automotriz en Medellín.' },
+          { icon: '🔧', title: 'Instalación limpia', desc: 'Trabajamos con respeto por el cableado original del vehículo. Sin improvisaciones.' },
+          { icon: '📋', title: 'Garantía por escrito', desc: 'Garantía de 1 año en la instalación. Si falla algo cubierto, lo revisamos sin costo.' },
+          { icon: '💬', title: 'Asesoría gratuita', desc: 'Te recomendamos el sistema ideal según tu vehículo, zona y presupuesto.' },
+        ].map(({ icon, title, desc }) => (
+          <div class="bg-brand-card border border-brand-border rounded-xl p-6 text-center hover:border-brand-red/30 transition-colors">
+            <div class="text-3xl mb-3">{icon}</div>
+            <h3 class="font-semibold text-white text-sm mb-2">{title}</h3>
+            <p class="text-gray-400 text-xs leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-brand-dark border-y border-brand-border">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 class="font-display font-black text-2xl sm:text-3xl text-white mb-4">
+        ¿Listo para proteger tu vehículo?
+      </h2>
+      <p class="text-gray-400 text-sm mb-8">
+        Cotiza tu alarma o bloqueo de puertas por WhatsApp. Te respondemos de inmediato y coordinamos
+        tu cita en el taller del Barrio Caribe, Medellín.
+      </p>
+      <a
+        href="https://wa.me/573054001112?text=Hola,%20quiero%20cotizar%20alarma%20o%20bloqueo%20de%20puertas%20para%20mi%20veh%C3%ADculo"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-hover text-white font-bold px-8 py-4 rounded-xl transition-all hover:scale-105 shadow-lg shadow-brand-red/20"
+      >
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.112 1.522 5.84L0 24l6.336-1.502A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.816 9.816 0 01-5.003-1.37l-.36-.213-3.76.891.932-3.667-.234-.376A9.818 9.818 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/>
+        </svg>
+        Cotizar por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <FAQ
+    title="Preguntas sobre Alarmas y Bloqueo"
+    items={faqItems}
+  />
+
+  <!-- Mapa -->
+  <MapSection />
+</Layout>

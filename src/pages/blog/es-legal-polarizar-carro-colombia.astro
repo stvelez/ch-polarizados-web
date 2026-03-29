@@ -1,0 +1,202 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import MapSection from '@/components/MapSection.astro';
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "¿Es legal polarizar el carro en Colombia? Normativa 2026",
+  "description": "Todo lo que debes saber sobre la legalidad del polarizado en Colombia. Porcentajes permitidos por el Código Nacional de Tránsito y cómo evitar una multa.",
+  "datePublished": "2026-02-01",
+  "dateModified": "2026-03-28",
+  "author": { "@type": "Organization", "name": "CH Polarizados" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CH Polarizados",
+    "logo": { "@type": "ImageObject", "url": "https://chpolarizados.com/favicon.svg" }
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://chpolarizados.com/blog/es-legal-polarizar-carro-colombia/" }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://chpolarizados.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://chpolarizados.com/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "¿Es legal polarizar el carro en Colombia?", "item": "https://chpolarizados.com/blog/es-legal-polarizar-carro-colombia/" },
+  ],
+};
+---
+
+<Layout
+  title="¿Es legal polarizar el carro en Colombia? Normativa 2026 | CH Polarizados"
+  description="¿Se puede polarizar el carro en Colombia sin multa? Conoce los porcentajes legales permitidos por el Código de Tránsito para vidrios delanteros y traseros en 2026."
+  canonical="/blog/es-legal-polarizar-carro-colombia"
+  schema={[articleSchema, breadcrumbSchema] as any}
+>
+  <article class="pt-28 pb-8 bg-brand-black">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Breadcrumb -->
+      <nav class="mb-8 text-xs text-gray-500" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-brand-red transition-colors">Inicio</a></li>
+          <li aria-hidden="true">›</li>
+          <li><a href="/blog/" class="hover:text-brand-red transition-colors">Blog</a></li>
+          <li aria-hidden="true">›</li>
+          <li class="text-gray-400">Legalidad polarizado Colombia</li>
+        </ol>
+      </nav>
+
+      <!-- Header -->
+      <header class="mb-10">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-brand-red text-xs font-bold uppercase tracking-widest">Información</span>
+          <span class="text-gray-600 text-xs">·</span>
+          <span class="text-gray-500 text-xs">4 min de lectura</span>
+          <span class="text-gray-600 text-xs">·</span>
+          <time class="text-gray-500 text-xs" datetime="2026-02-01">1 de febrero de 2026</time>
+        </div>
+        <h1 class="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white mb-5 leading-tight">
+          ¿Es legal polarizar el carro en Colombia? Normativa 2026
+        </h1>
+        <p class="text-gray-400 text-base leading-relaxed">
+          Sí, polarizar el carro en Colombia es completamente legal, pero con condiciones específicas.
+          El Código Nacional de Tránsito establece porcentajes mínimos de transmisión de luz para cada
+          vidrio del vehículo. Si no los cumples, puedes recibir una multa.
+        </p>
+      </header>
+
+      <!-- Aviso importante -->
+      <div class="bg-brand-red/10 border border-brand-red/30 rounded-xl p-5 mb-8">
+        <p class="text-white text-sm font-semibold mb-1">Nota importante</p>
+        <p class="text-gray-300 text-xs leading-relaxed">
+          En CH Polarizados siempre te asesoramos para cumplir con la normativa vigente. Nunca instalamos
+          películas que incumplan los porcentajes legales sin informarte previamente.
+        </p>
+      </div>
+
+      <!-- Contenido -->
+      <div class="space-y-8 text-gray-300 text-sm leading-relaxed">
+
+        <section>
+          <h2 class="font-display font-black text-2xl text-white mb-4">¿Qué dice la normativa colombiana sobre el polarizado?</h2>
+          <p>
+            El Código Nacional de Tránsito (Ley 769 de 2002) y la normativa complementaria del Ministerio de Transporte
+            permiten el uso de películas de control solar en vehículos automotores, pero establecen límites mínimos
+            de transmisión de luz visible (VLT, por sus siglas en inglés).
+          </p>
+          <p class="mt-3">
+            El porcentaje VLT indica cuánta luz visible pasa a través del vidrio. Un VLT del 70% significa que el
+            70% de la luz pasa a través. Cuanto más oscuro el polarizado, menor el porcentaje VLT.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display font-black text-2xl text-white mb-4">Porcentajes legales de VLT por vidrio</h2>
+          <div class="space-y-4">
+            {[
+              {
+                vidrio: 'Parabrisas delantero',
+                vlt: '≥ 70%',
+                nota: 'El vidrio más regulado. Debe permitir al menos el 70% de transmisión de luz. Solo se pueden usar películas muy claras o transparentes.',
+                color: 'yellow',
+              },
+              {
+                vidrio: 'Vidrios laterales delanteros (ventanas del conductor y copiloto)',
+                vlt: '≥ 70%',
+                nota: 'Igual que el parabrisas. Las ventanas delanteras tienen el mismo requisito mínimo de visibilidad.',
+                color: 'yellow',
+              },
+              {
+                vidrio: 'Vidrios laterales traseros',
+                vlt: '≥ 35%',
+                nota: 'Aquí hay más flexibilidad. Se pueden instalar películas más oscuras sin problema, lo que permite más privacidad y mayor bloqueo de calor.',
+                color: 'green',
+              },
+              {
+                vidrio: 'Luneta trasera (vidrio trasero)',
+                vlt: '≥ 35%',
+                nota: 'Mismo requisito que los laterales traseros. Es el vidrio donde se puede usar el polarizado más oscuro de forma legal.',
+                color: 'green',
+              },
+            ].map(({ vidrio, vlt, nota, color }) => (
+              <div class={`border rounded-xl p-5 ${color === 'green' ? 'bg-green-950/20 border-green-800/30' : 'bg-yellow-950/20 border-yellow-800/30'}`}>
+                <div class="flex items-start justify-between gap-4 mb-2">
+                  <p class="text-white font-semibold text-sm">{vidrio}</p>
+                  <span class={`shrink-0 text-xs font-bold px-3 py-1 rounded-full ${color === 'green' ? 'bg-green-900/50 text-green-400' : 'bg-yellow-900/50 text-yellow-400'}`}>
+                    VLT {vlt}
+                  </span>
+                </div>
+                <p class="text-gray-400 text-xs leading-relaxed">{nota}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <h2 class="font-display font-black text-2xl text-white mb-4">¿Qué pasa si el polarizado no cumple la normativa?</h2>
+          <p>
+            Si las autoridades de tránsito detectan que los vidrios delanteros de tu vehículo tienen un polarizado
+            que no cumple el VLT mínimo, puedes recibir una orden de corrección y, en algunos casos, una multa.
+          </p>
+          <p class="mt-3">
+            Por eso es importante contratar el servicio con talleres especializados que te informen sobre los
+            porcentajes y usen películas con las especificaciones correctas para cada vidrio.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display font-black text-2xl text-white mb-4">¿En CH Polarizados cumplen la normativa?</h2>
+          <p>
+            Siempre. Antes de instalar cualquier polarizado te explicamos qué porcentaje aplica para cada vidrio
+            según la normativa vigente. Para los vidrios delanteros (parabrisas y ventanas delanteras) solo instalamos
+            películas que cumplen el mínimo del 70% VLT.
+          </p>
+          <p class="mt-3">
+            Para los vidrios traseros tienes más opciones de oscuridad, y te ayudamos a elegir el tono que
+            más te guste dentro de los porcentajes legales.
+          </p>
+        </section>
+
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-12 bg-brand-card border border-brand-red/30 rounded-2xl p-7 text-center">
+        <p class="text-white font-semibold mb-2">¿Tienes dudas sobre qué polarizado aplica para tu vehículo?</p>
+        <p class="text-gray-400 text-sm mb-5">Te asesoramos gratis y cumplimos con la normativa vigente.</p>
+        <a
+          href="https://wa.me/573054001112?text=Hola,%20quiero%20saber%20qu%C3%A9%20polarizado%20puedo%20instalar%20legalmente"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-hover text-white font-bold px-7 py-3.5 rounded-xl transition-all hover:scale-105"
+        >
+          Consultar por WhatsApp
+        </a>
+      </div>
+
+      <!-- Artículos relacionados -->
+      <nav class="mt-12 pt-8 border-t border-brand-border" aria-label="Artículos relacionados">
+        <p class="text-gray-500 text-xs uppercase tracking-widest mb-4">Artículos relacionados</p>
+        <div class="space-y-3">
+          <a href="/blog/cuanto-cuesta-polarizar-carro-medellin/" class="flex items-center gap-2 text-gray-300 hover:text-brand-red transition-colors text-sm">
+            <svg class="w-4 h-4 text-brand-red shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+            ¿Cuánto cuesta polarizar un carro en Medellín? Precios 2026
+          </a>
+          <a href="/blog/polarizado-nanoceramica-vs-hd-diferencias/" class="flex items-center gap-2 text-gray-300 hover:text-brand-red transition-colors text-sm">
+            <svg class="w-4 h-4 text-brand-red shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+            Polarizado Nanocerámica vs HD: ¿Cuál elegir?
+          </a>
+        </div>
+      </nav>
+
+    </div>
+  </article>
+
+  <MapSection />
+</Layout>

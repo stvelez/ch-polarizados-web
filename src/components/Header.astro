@@ -1,12 +1,16 @@
 ---
-const navLinks = [
-  { label: 'Inicio',       href: '/'            },
-  { label: 'Polarizados',  href: '/polarizados' },
-  { label: 'Sonido',       href: '/sonido'       },
-];
-
 const whatsapp = '+573054001112';
 const currentPath = Astro.url.pathname;
+
+const servicios = [
+  { label: 'Polarizado Nanocerámica y HD', href: '/polarizados', icon: '🪟' },
+  { label: 'Sonido para Carros',           href: '/sonido',      icon: '🔊' },
+  { label: 'Alarmas y Bloqueo de Puertas', href: '/alarmas',     icon: '🔒' },
+  { label: 'Cámaras y Sensores',           href: '/camaras',     icon: '📷' },
+  { label: 'Eléctrico Automotriz',         href: '/electrico',   icon: '⚡' },
+];
+
+const isServicioActive = servicios.some(s => currentPath.startsWith(s.href));
 ---
 
 <header
@@ -28,26 +32,79 @@ const currentPath = Astro.url.pathname;
 
       <!-- Nav Desktop -->
       <nav class="hidden md:flex items-center gap-1" aria-label="Navegación principal">
-        {navLinks.map(({ label, href }) => {
-          const isActive =
-            href === '/'
-              ? currentPath === '/'
-              : currentPath.startsWith(href);
-          return (
-            <a
-              href={href}
-              class:list={[
-                'px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200',
-                isActive
-                  ? 'text-brand-red bg-brand-red/10'
-                  : 'text-gray-300 hover:text-white hover:bg-white/5',
-              ]}
-              aria-current={isActive ? 'page' : undefined}
-            >
-              {label}
-            </a>
-          );
-        })}
+        <!-- Inicio -->
+        <a
+          href="/"
+          class:list={[
+            'px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200',
+            currentPath === '/'
+              ? 'text-brand-red bg-brand-red/10'
+              : 'text-gray-300 hover:text-white hover:bg-white/5',
+          ]}
+          aria-current={currentPath === '/' ? 'page' : undefined}
+        >
+          Inicio
+        </a>
+
+        <!-- Servicios dropdown -->
+        <div class="relative" id="servicios-dropdown">
+          <button
+            id="servicios-btn"
+            class:list={[
+              'flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200',
+              isServicioActive
+                ? 'text-brand-red bg-brand-red/10'
+                : 'text-gray-300 hover:text-white hover:bg-white/5',
+            ]}
+            aria-expanded="false"
+            aria-haspopup="true"
+          >
+            Servicios
+            <svg class="w-3.5 h-3.5 transition-transform duration-200" id="servicios-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+
+          <!-- Dropdown panel -->
+          <div
+            id="servicios-panel"
+            class="hidden absolute left-0 top-full mt-2 w-64 bg-brand-dark border border-brand-border rounded-xl shadow-xl shadow-black/40 overflow-hidden"
+            role="menu"
+          >
+            {servicios.map(({ label, href, icon }) => {
+              const active = currentPath.startsWith(href);
+              return (
+                <a
+                  href={href}
+                  role="menuitem"
+                  class:list={[
+                    'flex items-center gap-3 px-4 py-3 text-sm transition-colors border-b border-brand-border last:border-0',
+                    active
+                      ? 'text-brand-red bg-brand-red/10'
+                      : 'text-gray-300 hover:text-white hover:bg-white/5',
+                  ]}
+                >
+                  <span class="text-base" aria-hidden="true">{icon}</span>
+                  {label}
+                </a>
+              );
+            })}
+          </div>
+        </div>
+
+        <!-- Blog -->
+        <a
+          href="/blog"
+          class:list={[
+            'px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200',
+            currentPath.startsWith('/blog')
+              ? 'text-brand-red bg-brand-red/10'
+              : 'text-gray-300 hover:text-white hover:bg-white/5',
+          ]}
+          aria-current={currentPath.startsWith('/blog') ? 'page' : undefined}
+        >
+          Blog
+        </a>
       </nav>
 
       <!-- CTA Desktop -->
@@ -87,27 +144,56 @@ const currentPath = Astro.url.pathname;
     aria-label="Menú móvil"
   >
     <nav class="px-4 pt-3 pb-4 space-y-1">
-      {navLinks.map(({ label, href }) => {
-        const isActive =
-          href === '/'
-            ? currentPath === '/'
-            : currentPath.startsWith(href);
+      <a
+        href="/"
+        class:list={[
+          'block px-4 py-3 rounded-lg text-sm font-medium transition-all',
+          currentPath === '/'
+            ? 'text-brand-red bg-brand-red/10'
+            : 'text-gray-300 hover:text-white hover:bg-white/5',
+        ]}
+        aria-current={currentPath === '/' ? 'page' : undefined}
+      >
+        Inicio
+      </a>
+
+      <div class="px-4 pt-2 pb-1">
+        <p class="text-xs font-bold uppercase tracking-widest text-gray-500">Servicios</p>
+      </div>
+
+      {servicios.map(({ label, href, icon }) => {
+        const active = currentPath.startsWith(href);
         return (
           <a
             href={href}
             class:list={[
-              'block px-4 py-3 rounded-lg text-sm font-medium transition-all',
-              isActive
+              'flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all',
+              active
                 ? 'text-brand-red bg-brand-red/10'
                 : 'text-gray-300 hover:text-white hover:bg-white/5',
             ]}
-            aria-current={isActive ? 'page' : undefined}
+            aria-current={active ? 'page' : undefined}
           >
+            <span aria-hidden="true">{icon}</span>
             {label}
           </a>
         );
       })}
-      <div class="pt-3 flex flex-col gap-2">
+
+      <a
+        href="/blog"
+        class:list={[
+          'block px-4 py-3 rounded-lg text-sm font-medium transition-all',
+          currentPath.startsWith('/blog')
+            ? 'text-brand-red bg-brand-red/10'
+            : 'text-gray-300 hover:text-white hover:bg-white/5',
+        ]}
+        aria-current={currentPath.startsWith('/blog') ? 'page' : undefined}
+      >
+        📝 Blog
+      </a>
+
+      <div class="pt-3">
         <a
           href={`https://wa.me/${whatsapp}?text=Hola,%20quiero%20cotizar%20un%20servicio`}
           target="_blank"
@@ -125,6 +211,7 @@ const currentPath = Astro.url.pathname;
 <div class="h-16 lg:h-20"></div>
 
 <script>
+  // Mobile menu toggle
   const btn = document.getElementById('menu-btn');
   const menu = document.getElementById('mobile-menu');
   const iconOpen = document.getElementById('icon-open');
@@ -138,7 +225,6 @@ const currentPath = Astro.url.pathname;
     btn?.setAttribute('aria-expanded', String(!isOpen));
   });
 
-  // Cerrar el menú al hacer click en un link
   menu?.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       menu.classList.add('hidden');
@@ -146,5 +232,41 @@ const currentPath = Astro.url.pathname;
       iconClose?.classList.add('hidden');
       btn?.setAttribute('aria-expanded', 'false');
     });
+  });
+
+  // Servicios dropdown (desktop)
+  const serviciosBtn = document.getElementById('servicios-btn');
+  const serviciosPanel = document.getElementById('servicios-panel');
+  const serviciosArrow = document.getElementById('servicios-arrow');
+  const serviciosDropdown = document.getElementById('servicios-dropdown');
+
+  function openDropdown() {
+    serviciosPanel?.classList.remove('hidden');
+    serviciosBtn?.setAttribute('aria-expanded', 'true');
+    serviciosArrow?.classList.add('rotate-180');
+  }
+
+  function closeDropdown() {
+    serviciosPanel?.classList.add('hidden');
+    serviciosBtn?.setAttribute('aria-expanded', 'false');
+    serviciosArrow?.classList.remove('rotate-180');
+  }
+
+  serviciosBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = !serviciosPanel?.classList.contains('hidden');
+    isOpen ? closeDropdown() : openDropdown();
+  });
+
+  // Cerrar al hacer click fuera
+  document.addEventListener('click', (e) => {
+    if (!serviciosDropdown?.contains(e.target as Node)) {
+      closeDropdown();
+    }
+  });
+
+  // Cerrar con Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDropdown();
   });
 </script>

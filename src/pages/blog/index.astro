@@ -1,0 +1,93 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import MapSection from '@/components/MapSection.astro';
+import { blogPosts } from '@/data/blog';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://chpolarizados.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://chpolarizados.com/blog/" },
+  ],
+};
+
+function formatDate(dateStr: string) {
+  const date = new Date(dateStr + 'T00:00:00');
+  return date.toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<Layout
+  title="Blog de CH Polarizados | Consejos sobre Polarizado y Audio para Carros en Medellín"
+  description="Artículos sobre polarizado de carros, instalación de sonido y eléctrico automotriz en Medellín. Precios, comparativas y consejos de expertos."
+  canonical="/blog"
+  schema={breadcrumbSchema}
+>
+  <!-- Hero simple -->
+  <section class="pt-28 pb-16 bg-brand-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto">
+        <span class="text-brand-red text-xs font-bold uppercase tracking-widest">Blog</span>
+        <h1 class="font-display font-black text-4xl sm:text-5xl text-white mt-3 mb-4">
+          Consejos y Guías
+        </h1>
+        <p class="text-gray-400 text-base">
+          Todo lo que necesitas saber sobre polarizado de carros, sonido y eléctrico automotriz en Medellín.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artículos -->
+  <section class="py-16 bg-brand-dark">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-6">
+        {blogPosts.map(post => (
+          <article class="bg-brand-card border border-brand-border rounded-2xl p-7 hover:border-brand-red/30 transition-colors group">
+            <a href={`/blog/${post.slug}/`} class="block">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="text-brand-red text-xs font-bold uppercase tracking-widest">{post.category}</span>
+                <span class="text-gray-600 text-xs">·</span>
+                <span class="text-gray-500 text-xs">{post.readTime} de lectura</span>
+                <span class="text-gray-600 text-xs">·</span>
+                <time class="text-gray-500 text-xs" datetime={post.date}>{formatDate(post.date)}</time>
+              </div>
+              <h2 class="font-display font-black text-xl sm:text-2xl text-white mb-3 group-hover:text-brand-red transition-colors">
+                {post.title}
+              </h2>
+              <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                {post.description}
+              </p>
+              <span class="text-brand-red text-sm font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                Leer artículo
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-14 bg-brand-black border-t border-brand-border">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <p class="text-gray-400 text-sm mb-6">
+        ¿Tienes dudas sobre cuál servicio necesitas? Escríbenos y te asesoramos gratis.
+      </p>
+      <a
+        href="https://wa.me/573054001112?text=Hola,%20leí%20el%20blog%20y%20tengo%20una%20consulta"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-hover text-white font-bold px-7 py-3.5 rounded-xl transition-all hover:scale-105"
+      >
+        Consultar gratis por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <MapSection />
+</Layout>

@@ -1,0 +1,227 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import MapSection from '@/components/MapSection.astro';
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Polarizado Nanocerámica vs HD: ¿Cuál elegir para tu carro?",
+  "description": "Comparativa completa entre el polarizado nanocerámica y el polarizado HD. Diferencias en precio, calor, durabilidad y garantía para que tomes la mejor decisión.",
+  "datePublished": "2026-02-15",
+  "dateModified": "2026-03-28",
+  "author": { "@type": "Organization", "name": "CH Polarizados" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CH Polarizados",
+    "logo": { "@type": "ImageObject", "url": "https://chpolarizados.com/favicon.svg" }
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://chpolarizados.com/blog/polarizado-nanoceramica-vs-hd-diferencias/" }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://chpolarizados.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://chpolarizados.com/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "Polarizado Nanocerámica vs HD", "item": "https://chpolarizados.com/blog/polarizado-nanoceramica-vs-hd-diferencias/" },
+  ],
+};
+---
+
+<Layout
+  title="Polarizado Nanocerámica vs HD: ¿Cuál elegir? | CH Polarizados Medellín"
+  description="Comparativa completa: polarizado nanocerámica vs HD para carros. Diferencias reales en rechazo de calor, duración, precio y garantía. Elige el mejor para tu vehículo."
+  canonical="/blog/polarizado-nanoceramica-vs-hd-diferencias"
+  schema={[articleSchema, breadcrumbSchema] as any}
+>
+  <article class="pt-28 pb-8 bg-brand-black">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Breadcrumb -->
+      <nav class="mb-8 text-xs text-gray-500" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-brand-red transition-colors">Inicio</a></li>
+          <li aria-hidden="true">›</li>
+          <li><a href="/blog/" class="hover:text-brand-red transition-colors">Blog</a></li>
+          <li aria-hidden="true">›</li>
+          <li class="text-gray-400">Nanocerámica vs HD</li>
+        </ol>
+      </nav>
+
+      <!-- Header -->
+      <header class="mb-10">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-brand-red text-xs font-bold uppercase tracking-widest">Polarizado</span>
+          <span class="text-gray-600 text-xs">·</span>
+          <span class="text-gray-500 text-xs">6 min de lectura</span>
+          <span class="text-gray-600 text-xs">·</span>
+          <time class="text-gray-500 text-xs" datetime="2026-02-15">15 de febrero de 2026</time>
+        </div>
+        <h1 class="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white mb-5 leading-tight">
+          Polarizado Nanocerámica vs HD: ¿Cuál elegir para tu carro?
+        </h1>
+        <p class="text-gray-400 text-base leading-relaxed">
+          Esta es la pregunta más frecuente que nos hacen en el taller. Ambas opciones son películas profesionales
+          de calidad, pero tienen diferencias importantes en tecnología, desempeño y precio. Aquí te lo explicamos
+          sin tecnicismos.
+        </p>
+      </header>
+
+      <!-- Contenido -->
+      <div class="space-y-8 text-gray-300 text-sm leading-relaxed">
+
+        <!-- Tabla comparativa -->
+        <section>
+          <h2 class="font-display font-black text-2xl text-white mb-4">Comparativa rápida: Nanocerámica vs HD</h2>
+          <div class="overflow-x-auto">
+            <table class="w-full border border-brand-border rounded-xl overflow-hidden text-xs">
+              <thead>
+                <tr class="bg-brand-card border-b border-brand-border">
+                  <th class="text-left px-4 py-3 text-white font-semibold">Característica</th>
+                  <th class="text-left px-4 py-3 text-brand-red font-semibold">Nanocerámica</th>
+                  <th class="text-left px-4 py-3 text-white font-semibold">HD</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-brand-border">
+                {[
+                  ['Bloqueo rayos UV', '99%', '99%'],
+                  ['Rechazo de calor', 'Hasta el 60%', 'Hasta el 40%'],
+                  ['Interferencia GPS/celular', 'Ninguna', 'Ninguna'],
+                  ['Durabilidad', 'Más de 5 años', '3 a 5 años'],
+                  ['Garantía', '5 años', '3 años'],
+                  ['Precio relativo', 'Mayor inversión', 'Más accesible'],
+                  ['Tecnología', 'Partículas cerámicas', 'Película polimérica'],
+                ].map(([feat, nano, hd], i) => (
+                  <tr class={i % 2 === 0 ? 'bg-brand-black/50' : 'bg-brand-card'}>
+                    <td class="px-4 py-3 text-gray-400 font-medium">{feat}</td>
+                    <td class="px-4 py-3 text-gray-300">{nano}</td>
+                    <td class="px-4 py-3 text-gray-300">{hd}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="font-display font-black text-2xl text-white mb-4">¿Qué es el polarizado nanocerámica?</h2>
+          <p>
+            El polarizado nanocerámica usa partículas cerámicas de nanotecnología en su composición. Estas partículas
+            son capaces de bloquear la radiación infrarroja (calor) y ultravioleta sin necesidad de contener metal.
+          </p>
+          <p class="mt-3">
+            Esto tiene una gran ventaja práctica: <strong class="text-white">no interfiere con señales de GPS, celular, radio
+            ni con los sistemas de peaje electrónico</strong>. Las películas metalizadas antiguas sí lo hacían,
+            y ese era su principal inconveniente.
+          </p>
+          <p class="mt-3">
+            Además de su rendimiento superior en el rechazo de calor (hasta el 60%), el nanocerámica tiene mayor
+            vida útil, no se decolora ni amarilla con el tiempo, y ofrece una garantía de 5 años.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display font-black text-2xl text-white mb-4">¿Qué es el polarizado HD?</h2>
+          <p>
+            El polarizado HD es una película polimérica de alta calidad que ofrece excelente protección UV (99%),
+            reducción de calor hasta el 40%, alta claridad óptica y acabado uniforme sin distorsiones.
+          </p>
+          <p class="mt-3">
+            Es nuestra opción más popular porque ofrece una excelente relación calidad-precio. Ideal para quien
+            busca protección real sin hacer la mayor inversión, con una garantía sólida de 3 años.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display font-black text-2xl text-white mb-4">¿Cuándo elegir el nanocerámica?</h2>
+          <ul class="space-y-2 ml-4">
+            {[
+              'Usas el carro a diario con exposición constante al sol',
+              'Buscas el máximo confort térmico dentro del vehículo',
+              'Tu vehículo tiene sistemas de peaje electrónico o GPS integrado',
+              'Quieres la mayor durabilidad y no cambiar la película en varios años',
+              'El presupuesto no es el principal factor de decisión',
+            ].map(item => (
+              <li class="flex items-start gap-2">
+                <span class="text-brand-red mt-1 shrink-0">✓</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="font-display font-black text-2xl text-white mb-4">¿Cuándo elegir el HD?</h2>
+          <ul class="space-y-2 ml-4">
+            {[
+              'Quieres buena protección UV y reducción de calor a menor precio',
+              'El vehículo no es de uso diario intensivo',
+              'Buscas una opción de calidad media-alta con garantía sólida',
+              'Tu presupuesto es más ajustado pero no quieres sacrificar calidad',
+            ].map(item => (
+              <li class="flex items-start gap-2">
+                <span class="text-brand-red mt-1 shrink-0">✓</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="font-display font-black text-2xl text-white mb-4">Nuestra recomendación</h2>
+          <p>
+            Si tienes el presupuesto, el nanocerámica siempre es la mejor inversión a largo plazo. La diferencia
+            en rechazo de calor es notable, especialmente en un clima como el de Medellín donde el sol es constante
+            durante el año.
+          </p>
+          <p class="mt-3">
+            Si el presupuesto es una consideración importante, el HD es una opción muy sólida que no te decepcionará.
+            Lo que sí recomendamos siempre es no optar por películas de calidad inferior que terminan burbujando
+            y amarillándose en pocos meses.
+          </p>
+          <p class="mt-3">
+            ¿Tienes dudas de cuál es la mejor opción para tu vehículo? Escríbenos y te asesoramos sin compromiso.
+          </p>
+        </section>
+
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-12 bg-brand-card border border-brand-red/30 rounded-2xl p-7 text-center">
+        <p class="text-white font-semibold mb-2">¿Cuál es la mejor opción para tu carro?</p>
+        <p class="text-gray-400 text-sm mb-5">Cuéntanos tu vehículo y te asesoramos gratis por WhatsApp.</p>
+        <a
+          href="https://wa.me/573054001112?text=Hola,%20quiero%20asesor%C3%ADa%20para%20elegir%20el%20polarizado%20ideal%20para%20mi%20carro"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-hover text-white font-bold px-7 py-3.5 rounded-xl transition-all hover:scale-105"
+        >
+          Asesoría gratis por WhatsApp
+        </a>
+      </div>
+
+      <!-- Artículos relacionados -->
+      <nav class="mt-12 pt-8 border-t border-brand-border" aria-label="Artículos relacionados">
+        <p class="text-gray-500 text-xs uppercase tracking-widest mb-4">Artículos relacionados</p>
+        <div class="space-y-3">
+          <a href="/blog/cuanto-cuesta-polarizar-carro-medellin/" class="flex items-center gap-2 text-gray-300 hover:text-brand-red transition-colors text-sm">
+            <svg class="w-4 h-4 text-brand-red shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+            ¿Cuánto cuesta polarizar un carro en Medellín? Precios 2026
+          </a>
+          <a href="/blog/cuanto-dura-polarizado-carro-mantenimiento/" class="flex items-center gap-2 text-gray-300 hover:text-brand-red transition-colors text-sm">
+            <svg class="w-4 h-4 text-brand-red shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+            ¿Cuánto dura el polarizado y cómo cuidarlo?
+          </a>
+        </div>
+      </nav>
+
+    </div>
+  </article>
+
+  <MapSection />
+</Layout>

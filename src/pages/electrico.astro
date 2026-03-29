@@ -1,0 +1,239 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Hero from '@/components/Hero.astro';
+import FAQ from '@/components/FAQ.astro';
+import MapSection from '@/components/MapSection.astro';
+
+const faqItems = [
+  {
+    question: '¿Qué es un kit de vidrios eléctricos y para qué sirve?',
+    answer:
+      'Un kit de vidrios eléctricos convierte las manivelas manuales de las ventanas en un sistema eléctrico con botones. Incluye motores eléctricos para cada puerta, el panel de botones y el cableado. Es una de las actualizaciones más populares en vehículos básicos o de modelos anteriores.',
+  },
+  {
+    question: '¿Los vidrios eléctricos son compatibles con cualquier carro?',
+    answer:
+      'En la gran mayoría de vehículos sí. Trabajamos con kits universales que se adaptan a puertas de 2 o 4 puertas. Antes de la instalación revisamos el vehículo para confirmar compatibilidad y darte la cotización exacta.',
+  },
+  {
+    question: '¿Cuánto tarda la instalación de vidrios eléctricos?',
+    answer:
+      'La instalación de vidrios eléctricos en un vehículo de 4 puertas toma entre 3 y 5 horas. La de 2 puertas toma entre 2 y 3 horas. Coordinamos la cita para que puedas dejarlo y recogerlo el mismo día.',
+  },
+  {
+    question: '¿Instalan luces LED exploradoras en cualquier vehículo?',
+    answer:
+      'Sí. Instalamos faros y exploradores LED en la mayoría de vehículos: carros, camionetas, pick-ups y 4x4. El tipo de soporte y la potencia se eligen según el uso del vehículo (urbano, off-road, trabajo nocturno).',
+  },
+  {
+    question: '¿Qué garantía tiene el servicio eléctrico automotriz?',
+    answer:
+      'Todos nuestros servicios eléctricos tienen garantía de instalación de 1 año. Los equipos (motores, kits) tienen la garantía del fabricante. Si presentas algún problema cubierto por garantía, lo revisamos sin costo adicional.',
+  },
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Eléctrico Automotriz en Medellín",
+  "provider": {
+    "@type": "AutoRepair",
+    "name": "CH Polarizados",
+    "url": "https://chpolarizados.com",
+    "telephone": "+573054001112",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Cra. 64c #75a-15, Barrio Caribe",
+      "addressLocality": "Medellín",
+      "addressCountry": "CO"
+    }
+  },
+  "areaServed": { "@type": "City", "name": "Medellín" },
+  "description": "Instalación de vidrios eléctricos, luces LED, diagnóstico eléctrico y accesorios automotrices en Medellín. Técnicos especializados con garantía incluida.",
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://chpolarizados.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Eléctrico Automotriz", "item": "https://chpolarizados.com/electrico/" },
+  ],
+};
+---
+
+<Layout
+  title="Eléctrico Automotriz en Medellín | Vidrios Eléctricos y Luces LED | CH Polarizados"
+  description="Instalación de vidrios eléctricos, luces LED exploradoras, diagnóstico eléctrico y accesorios en Medellín. Técnicos especializados, garantía por escrito. ¡Cotiza gratis!"
+  canonical="/electrico"
+  schema={[serviceSchema, breadcrumbSchema] as any}
+>
+  <!-- Hero -->
+  <Hero
+    badge="Eléctrico automotriz"
+    title="Eléctrico"
+    subtitle="Automotriz en Medellín"
+    description="Instalamos y reparamos el sistema eléctrico de tu vehículo en Medellín. Vidrios eléctricos, luces LED, diagnóstico eléctrico y más accesorios de confort. Técnicos especializados con garantía por escrito."
+    ctaLabel="Cotizar servicio eléctrico"
+    ctaHref="https://wa.me/573054001112?text=Hola,%20quiero%20cotizar%20un%20servicio%20el%C3%A9ctrico%20automotriz"
+    stats={[
+      { value: '10+', label: 'Años de experiencia' },
+      { value: '1 año', label: 'Garantía instalación' },
+      { value: '5★',  label: 'Satisfacción' },
+    ]}
+  />
+
+  <!-- Servicios eléctricos -->
+  <section class="py-20 lg:py-28 bg-brand-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="text-brand-red text-xs font-bold uppercase tracking-widest">Servicios disponibles</span>
+        <h2 class="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-2 mb-4">
+          ¿Qué servicio eléctrico necesitas?
+        </h2>
+        <p class="text-gray-400 text-base max-w-xl mx-auto">
+          Instalamos accesorios eléctricos y realizamos diagnósticos para mantener tu vehículo en óptimas condiciones.
+        </p>
+      </div>
+
+      <!-- Vidrios eléctricos destacado -->
+      <div id="vidrios" class="bg-brand-card border border-brand-border rounded-2xl p-8 lg:p-10 scroll-mt-24 mb-6">
+        <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-3xl">🪟</span>
+              <span class="bg-brand-red text-white text-xs font-bold px-3 py-1 rounded-full">Más solicitado</span>
+            </div>
+            <h3 class="font-display font-black text-2xl sm:text-3xl text-white mb-4">
+              Vidrios Eléctricos
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+              Convierte las manivelas manuales de tu vehículo en vidrios eléctricos. Kit completo con motores
+              para cada puerta, panel de botones y cableado profesional. Una de las mejoras más valoradas
+              en vehículos básicos o de modelos anteriores.
+            </p>
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              {[
+                { label: 'Puertas', value: '2 o 4' },
+                { label: 'Panel de botones', value: 'Incluido' },
+                { label: 'Instalación', value: '3-5 hrs' },
+                { label: 'Garantía', value: '1 año' },
+              ].map(({ label, value }) => (
+                <div class="bg-brand-black rounded-xl p-4">
+                  <div class="text-brand-red font-bold text-lg">{value}</div>
+                  <div class="text-gray-400 text-xs">{label}</div>
+                </div>
+              ))}
+            </div>
+            <a
+              href="https://wa.me/573054001112?text=Hola,%20quiero%20cotizar%20vidrios%20el%C3%A9ctricos"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-hover text-white font-bold text-sm px-6 py-3 rounded-xl transition-all hover:scale-105"
+            >
+              Cotizar vidrios eléctricos
+            </a>
+          </div>
+          <div class="mt-8 lg:mt-0">
+            <ul class="space-y-3">
+              {[
+                'Motores de alta calidad para 2 o 4 puertas',
+                'Panel de botones integrado en la puerta del conductor',
+                'Botones individuales en cada puerta pasajero',
+                'Cableado profesional sin afectar el sistema original',
+                'Compatible con todos los modelos y marcas',
+                'Instalación en el mismo día con cita previa',
+                'Garantía de 1 año en instalación y motores',
+              ].map(feature => (
+                <li class="flex items-start gap-3 text-sm text-gray-300">
+                  <svg class="w-5 h-5 text-brand-red shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Otros servicios en grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[
+          {
+            id: 'luces',
+            icon: '💡',
+            title: 'Luces LED y Exploradoras',
+            description: 'Instalación de faros LED de alto rendimiento, exploradoras para trabajo nocturno y barras LED para pick-ups y camionetas. Mayor visibilidad y estética.',
+            cta: 'Cotizar luces LED',
+            msg: 'luces%20LED%20y%20exploradoras',
+          },
+          {
+            id: 'diagnostico',
+            icon: '⚡',
+            title: 'Diagnóstico Eléctrico',
+            description: 'Revisión y diagnóstico del sistema eléctrico de tu vehículo. Identificamos fallas en luces, sensores, fusibles y cableado. Reparación profesional garantizada.',
+            cta: 'Cotizar diagnóstico',
+            msg: 'diagn%C3%B3stico%20el%C3%A9ctrico',
+          },
+          {
+            id: 'accesorios',
+            icon: '🔌',
+            title: 'Accesorios Eléctricos',
+            description: 'Instalación de enchufes USB, cargadores inalámbricos, retrovisores eléctricos y otros accesorios de confort para mejorar tu experiencia de conducción.',
+            cta: 'Cotizar accesorios',
+            msg: 'accesorios%20el%C3%A9ctricos',
+          },
+        ].map(({ id, icon, title, description, cta, msg }) => (
+          <div id={id} class="bg-brand-card border border-brand-border rounded-2xl p-7 flex flex-col scroll-mt-24 hover:border-brand-red/30 transition-colors">
+            <div class="text-3xl mb-4">{icon}</div>
+            <h3 class="font-display font-black text-xl text-white mb-3">{title}</h3>
+            <p class="text-gray-400 text-sm leading-relaxed flex-1 mb-6">{description}</p>
+            <a
+              href={`https://wa.me/573054001112?text=Hola,%20quiero%20cotizar%20${msg}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center gap-2 border border-brand-border hover:border-brand-red/50 text-white hover:text-brand-red font-bold text-sm px-5 py-3 rounded-xl transition-all"
+            >
+              {cta}
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-brand-dark border-y border-brand-border">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 class="font-display font-black text-2xl sm:text-3xl text-white mb-4">
+        Agenda tu servicio eléctrico hoy
+      </h2>
+      <p class="text-gray-400 text-sm mb-8">
+        Cuéntanos qué necesita tu vehículo. Te damos la cotización al instante y coordinamos
+        tu cita en el taller del Barrio Caribe, Medellín.
+      </p>
+      <a
+        href="https://wa.me/573054001112?text=Hola,%20quiero%20cotizar%20un%20servicio%20el%C3%A9ctrico%20automotriz%20para%20mi%20veh%C3%ADculo"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-hover text-white font-bold px-8 py-4 rounded-xl transition-all hover:scale-105 shadow-lg shadow-brand-red/20"
+      >
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.112 1.522 5.84L0 24l6.336-1.502A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.816 9.816 0 01-5.003-1.37l-.36-.213-3.76.891.932-3.667-.234-.376A9.818 9.818 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/>
+        </svg>
+        Cotizar por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <FAQ
+    title="Preguntas sobre Eléctrico Automotriz"
+    items={faqItems}
+  />
+
+  <!-- Mapa -->
+  <MapSection />
+</Layout>
