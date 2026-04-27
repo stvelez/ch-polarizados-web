@@ -1,0 +1,3 @@
+export const BOT_WHATSAPP = '+573002637066';
+export const SHOP_PHONE = '+573054001112';
+export const SHOP_PHONE_DISPLAY = '305 400 1112';
